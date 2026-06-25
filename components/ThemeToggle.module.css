@@ -1,0 +1,18 @@
+.toggle {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  margin-left: 4px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-fill-1);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.toggle:hover {
+  background: var(--color-fill-2);
+  color: var(--color-text-primary);
+}

@@ -1,0 +1,63 @@
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  height: 62px;
+  background: var(--nav-bg);
+  backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 0.5px solid var(--nav-border);
+}
+
+.inner {
+  max-width: 1024px;
+  height: 100%;
+  margin-inline: auto;
+  padding: 0 clamp(22px, 4vw, 40px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  font-weight: 500;
+  font-size: 19px;
+  letter-spacing: -0.01em;
+}
+
+.brandMark {
+  width: 30px;
+  height: 30px;
+}
+
+.brandText {
+  font-size: inherit;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.link {
+  padding: 8px 0;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  color: color-mix(in oklab, var(--apple-ink) 90%, transparent);
+  transition: color 0.16s ease;
+}
+
+.link:hover {
+  color: var(--color-text-primary);
+}
+
+@media (max-width: 520px) {
+  .brandText {
+    display: none;
+  }
+}

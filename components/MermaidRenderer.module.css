@@ -1,0 +1,29 @@
+.diagram {
+  margin: 1rem 0;
+  overflow-x: auto;
+}
+
+.diagram svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-inline: auto;
+}
+
+.error {
+  margin: 1rem 0;
+  padding: 14px 16px;
+  border: 1px solid color-mix(in oklab, var(--ios-red) 40%, transparent);
+  border-radius: 10px;
+  background: color-mix(in oklab, var(--ios-red) 8%, transparent);
+  color: var(--apple-ink);
+  font-size: 0.9rem;
+}
+
+.error pre {
+  margin: 8px 0 0;
+  white-space: pre-wrap;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--apple-ink-soft);
+}

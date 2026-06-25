@@ -1,0 +1,9 @@
+.wrap {
+  padding: 64px 0 24px;
+}
+
+.title {
+  margin: 0 0 24px;
+  font-size: clamp(2rem, 5vw, 2.6rem);
+  letter-spacing: -0.03em;
+}

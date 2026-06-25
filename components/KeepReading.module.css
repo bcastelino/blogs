@@ -1,0 +1,191 @@
+.wrap {
+  max-width: 1240px;
+  color: var(--apple-ink);
+  margin: 0 auto;
+  padding: clamp(64px, 10vh, 120px) clamp(22px, 4vw, 40px) clamp(40px, 7vh, 80px);
+}
+
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: clamp(22px, 3vh, 36px);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--apple-ink-soft);
+}
+
+.more {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  color: var(--apple-ink);
+  transition: color 0.14s ease;
+}
+
+.more::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 14px;
+  height: 1px;
+  background: var(--apple-ink);
+  transform: scaleX(0);
+  transform-origin: 0;
+  transition: transform 0.22s ease;
+}
+
+.more:hover::after {
+  transform: scaleX(1);
+}
+
+.rule {
+  margin: 0;
+  border: none;
+  border-top: 1px solid var(--apple-rule);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(14px, 1.6vw, 22px);
+  padding: clamp(28px, 4vh, 48px) 0;
+}
+
+@media (max-width: 900px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 620px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  --accent: var(--further-accent, var(--ios-blue));
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: clamp(440px, 52vh, 520px);
+  padding: clamp(24px, 2.5vw, 32px);
+  border-radius: clamp(20px, 2vw, 28px);
+  overflow: hidden;
+  color: var(--apple-ink);
+  border: 1px solid color-mix(in oklab, var(--apple-ink) 6%, transparent);
+  background: linear-gradient(160deg,
+      color-mix(in oklab, var(--further-accent, var(--ios-blue)) 24%, var(--further-base)),
+      color-mix(in oklab, var(--further-accent, var(--ios-blue)) 8%, var(--further-base)));
+  transition: transform 0.5s cubic-bezier(0.28, 0.11, 0.32, 1),
+    box-shadow 0.5s cubic-bezier(0.28, 0.11, 0.32, 1),
+    border-color 0.5s cubic-bezier(0.28, 0.11, 0.32, 1);
+}
+
+.card:hover {
+  transform: scale(1.015);
+  border-color: color-mix(in oklab, var(--apple-ink) 12%, transparent);
+  box-shadow: 0 30px 80px -30px #0000008c;
+}
+
+.cardHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--apple-ink-soft);
+}
+
+.cardKicker {
+  color: var(--apple-ink);
+  font-weight: 600;
+}
+
+.cardViz {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(20px, 3vw, 36px) 0;
+}
+
+.cardViz svg {
+  width: 100%;
+  max-width: 240px;
+  height: auto;
+  display: block;
+}
+
+.cardTitle {
+  margin: 0;
+  max-width: 18ch;
+  padding-right: 48px;
+  font-size: clamp(20px, 1.8vw, 26px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.cardArrow {
+  position: absolute;
+  bottom: clamp(20px, 2.5vw, 28px);
+  right: clamp(20px, 2.5vw, 28px);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: color-mix(in oklab, var(--apple-paper) 90%, transparent);
+  border: 1px solid color-mix(in oklab, var(--apple-ink) 10%, transparent);
+  color: var(--apple-ink);
+  transition: background 0.5s cubic-bezier(0.28, 0.11, 0.32, 1),
+    color 0.5s cubic-bezier(0.28, 0.11, 0.32, 1),
+    border-color 0.5s cubic-bezier(0.28, 0.11, 0.32, 1);
+}
+
+.cardArrow::before,
+.cardArrow::after {
+  content: '↗';
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  transition: transform 0.5s cubic-bezier(0.28, 0.11, 0.32, 1);
+}
+
+.cardArrow::after {
+  transform: translate(-120%, 120%);
+}
+
+.card:hover .cardArrow {
+  background: var(--apple-ink);
+  border-color: var(--apple-ink);
+  color: var(--apple-paper);
+}
+
+.card:hover .cardArrow::before {
+  transform: translate(120%, -120%);
+}
+
+.card:hover .cardArrow::after {
+  transform: translate(0);
+}
