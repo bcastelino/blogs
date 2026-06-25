@@ -4,14 +4,14 @@
 
 **A personal blog by [Brian Castelino](https://github.com/bcastelino)** — writing about technology, building things, and various topics.
 
-[![Live Site](https://img.shields.io/badge/Live-bcastelino.github.io%2Fblogs-2563eb?style=for-the-badge&logo=githubpages&logoColor=white)](https://bcastelino.github.io/blogs/)
-[![Deploy](https://img.shields.io/github/actions/workflow/status/bcastelino/blogs/deploy.yml?branch=main&style=for-the-badge&label=Deploy&logo=githubactions&logoColor=white)](https://github.com/bcastelino/blogs/actions/workflows/deploy.yml)
-[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](#-license)
+[![Live Site](https://img.shields.io/badge/Live-bcastelino.github.io%2Fblogs-blue.svg)](https://bcastelino.github.io/blogs/)
+[![Deploy](https://img.shields.io/github/actions/workflow/status/bcastelino/blogs/deploy.yml?branch=main&label=Deploy)](https://github.com/bcastelino/blogs/actions/workflows/deploy.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 
-![Next.js](https://img.shields.io/badge/Next.js-15-000000?style=flat-square&logo=nextdotjs&logoColor=white)
-![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=black)
-![Mermaid](https://img.shields.io/badge/Mermaid-11-FF3670?style=flat-square&logo=mermaid&logoColor=white)
-![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-static-222222?style=flat-square&logo=github&logoColor=white)
+![Next.js](https://img.shields.io/badge/Next.js-15-black.svg)
+![React](https://img.shields.io/badge/React-19-61DAFB.svg)
+![Mermaid](https://img.shields.io/badge/Mermaid-11-FF3670.svg)
+![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-static-222222.svg)
 
 </div>
 
@@ -108,4 +108,4 @@ next.config.mjs      Static export + basePath config
 
 ## 📄 License
 
-Released under the **MIT License**. Content (blog posts) © Brian Castelino.
+Released under the **MIT License** — see [`LICENSE`](./LICENSE). Content (blog posts) © Brian Castelino.
