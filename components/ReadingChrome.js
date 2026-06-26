@@ -10,6 +10,7 @@ export default function ReadingChrome({ title, kicker, readingMinutes, headings 
   const [showMini, setShowMini] = useState(false);
   const [copied, setCopied] = useState(false);
   const tickingRef = useRef(false);
+  const railListRef = useRef(null);
 
   const update = useCallback(() => {
     const doc = document.documentElement;
@@ -50,6 +51,22 @@ export default function ReadingChrome({ title, kicker, readingMinutes, headings 
     };
   }, [update]);
 
+  // Keep the active item visible inside the rail without scrolling the page.
+  useEffect(() => {
+    const list = railListRef.current;
+    if (!list || !activeId) return;
+    const item = list.querySelector(`[data-id="${activeId}"]`);
+    if (!item) return;
+    const listRect = list.getBoundingClientRect();
+    const itemRect = item.getBoundingClientRect();
+    const margin = 16;
+    if (itemRect.top < listRect.top + margin) {
+      list.scrollTop -= listRect.top + margin - itemRect.top;
+    } else if (itemRect.bottom > listRect.bottom - margin) {
+      list.scrollTop += itemRect.bottom - (listRect.bottom - margin);
+    }
+  }, [activeId]);
+
   const copyLink = async () => {
     try {
       await navigator.clipboard.writeText(window.location.href);
@@ -83,7 +100,7 @@ export default function ReadingChrome({ title, kicker, readingMinutes, headings 
       </div>
 
       {/* 2. Left rail: on-this-page + reading metadata + actions */}
-      <nav className={styles.rail} aria-label="Article navigation">
+      <nav className={styles.rail} aria-label="Article navigation" ref={railListRef}>
         {headings.length > 0 && (
           <>
             <div className={styles.railHead}>On this page</div>
@@ -91,9 +108,9 @@ export default function ReadingChrome({ title, kicker, readingMinutes, headings 
               {headings.map((h, i) => (
                 <li
                   key={h.id}
-                  className={`${styles.railItem} ${
-                    activeId === h.id ? styles.railItemOn : ''
-                  } ${h.level === 3 ? styles.railItemSub : ''}`}
+                  data-id={h.id}
+                  className={`${styles.railItem} ${activeId === h.id ? styles.railItemOn : ''
+                    } ${h.level === 3 ? styles.railItemSub : ''}`}
                 >
                   <a className={styles.railLink} href={`#${h.id}`}>
                     <span className={styles.railIndex}>

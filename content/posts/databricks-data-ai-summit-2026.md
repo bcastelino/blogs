@@ -1,6 +1,6 @@
 ---
 title: "Databricks Data + AI Summit 2026: The Lakehouse Becomes the Agentic Control Plane"
-date: 2026-06-26
+date: 2026-06-25
 updated: 2026-06-26
 excerpt: "A technical deep dive into Databricks Data + AI Summit 2026: Genie One, Unity AI Gateway, Lakeflow, LTAP, Lakebase, and Lakewatch, and what each announcement means for data and AI engineers."
 tags: [databricks, dais-2026, data-engineering, ai-agents, lakehouse, unity-catalog]
@@ -60,6 +60,15 @@ The full Day 1 keynote is the best single source for the announcement sequencing
 <a href="https://www.youtube.com/watch?v=Qux8E-L1mk8" target="_blank" rel="noopener noreferrer" style="display:block;max-width:560px;margin:1.5rem 0;border-radius:14px;overflow:hidden;border:1px solid var(--color-border);box-shadow:var(--shadow-card);text-decoration:none;">
   <img src="https://img.youtube.com/vi/Qux8E-L1mk8/maxresdefault.jpg" alt="Data + AI Summit Keynote 2026, Day 1" style="display:block;width:100%;margin:0;border-radius:0;" />
   <span style="display:block;padding:0.75rem 1rem;font-weight:600;background:var(--color-fill-1);">▶ Data + AI Summit Keynote 2026, Day 1 <span style="display:block;font-weight:400;font-size:0.9rem;color:var(--color-text-muted);">Databricks · YouTube</span></span>
+</a>
+
+### Watch: the Day 2 keynote
+
+The Day 2 keynote dives deeper into the developer and research side: open source, AI engineering, and the technical underpinnings of the agentic platform.
+
+<a href="https://www.youtube.com/watch?v=sn9My5Pj0mE" target="_blank" rel="noopener noreferrer" style="display:block;max-width:560px;margin:1.5rem 0;border-radius:14px;overflow:hidden;border:1px solid var(--color-border);box-shadow:var(--shadow-card);text-decoration:none;">
+  <img src="https://img.youtube.com/vi/sn9My5Pj0mE/maxresdefault.jpg" alt="Data + AI Summit Keynote 2026, Day 2" style="display:block;width:100%;margin:0;border-radius:0;" />
+  <span style="display:block;padding:0.75rem 1rem;font-weight:600;background:var(--color-fill-1);">▶ Data + AI Summit Keynote 2026, Day 2 <span style="display:block;font-weight:400;font-size:0.9rem;color:var(--color-text-muted);">Databricks · YouTube</span></span>
 </a>
 
 ## AI and the agentic platform
@@ -279,6 +288,7 @@ For teams already deep in Databricks, Power BI, and cloud data engineering, the 
 | DAIS 2026 event site | Official event | Databricks | <https://www.databricks.com/dataaisummit> |
 | 2026 keynote lineup | Press release | Databricks | <https://www.databricks.com/company/newsroom/press-releases/databricks-announces-2026-data-ai-summit-keynote-lineup-and> |
 | Day 1 keynote (video) | Keynote video | Databricks | <https://www.youtube.com/watch?v=Qux8E-L1mk8> |
+| Day 2 keynote (video) | Keynote video | Databricks | <https://www.youtube.com/watch?v=sn9My5Pj0mE> |
 | Genie One / Ontology / Agents | Product blog | Databricks | <https://www.databricks.com/blog/introducing-genie-one-genie-ontology-and-genie-agents> |
 | Genie One launch | Press release | Databricks | <https://www.databricks.com/company/newsroom/press-releases/databricks-launches-genie-one-all-new-agentic-coworker-every-team> |
 | LTAP launch | Press release | Databricks | <https://www.databricks.com/company/newsroom/press-releases/databricks-launches-ltap-first-lake-transactionalanalytical> |
