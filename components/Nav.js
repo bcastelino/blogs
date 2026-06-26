@@ -12,11 +12,8 @@ export default function Nav() {
           <span className={styles.brandText}>The Brian Journal</span>
         </Link>
         <nav className={styles.links}>
-          <Link href="/" className={styles.link}>
+          <Link href="/writing" className={styles.link}>
             Writing
-          </Link>
-          <Link href="/docs" className={styles.link}>
-            Docs
           </Link>
           <Link href="/about" className={styles.link}>
             About

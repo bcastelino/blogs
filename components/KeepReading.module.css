@@ -85,7 +85,6 @@
   height: clamp(440px, 52vh, 520px);
   padding: clamp(24px, 2.5vw, 32px);
   border-radius: clamp(20px, 2vw, 28px);
-  overflow: hidden;
   color: var(--apple-ink);
   border: 1px solid color-mix(in oklab, var(--apple-ink) 6%, transparent);
   background: linear-gradient(160deg,
@@ -97,6 +96,7 @@
 }
 
 .card:hover {
+  z-index: 3;
   transform: scale(1.015);
   border-color: color-mix(in oklab, var(--apple-ink) 12%, transparent);
   box-shadow: 0 30px 80px -30px #0000008c;
@@ -134,14 +134,74 @@
   display: block;
 }
 
+.titleRow {
+  position: relative;
+}
+
 .cardTitle {
   margin: 0;
-  max-width: 18ch;
+  max-width: 22ch;
   padding-right: 48px;
-  font-size: clamp(20px, 1.8vw, 26px);
+  font-size: clamp(18px, 1.6vw, 23px);
   font-weight: 600;
   letter-spacing: -0.02em;
-  line-height: 1.15;
+  line-height: 1.2;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.tooltip {
+  --tooltip-bg: #1d1d1f;
+  --tooltip-fg: #fbfbfd;
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 0;
+  z-index: 6;
+  max-width: min(280px, 100%);
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: var(--tooltip-bg);
+  color: var(--tooltip-fg);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  box-shadow: 0 12px 30px -12px #00000080;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
+  pointer-events: none;
+}
+
+.tooltip::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 18px;
+  border: 6px solid transparent;
+  border-bottom-color: var(--tooltip-bg);
+}
+
+.titleRow:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+:global(:root[data-theme='dark']) .tooltip {
+  --tooltip-bg: #2a2a2c;
+  --tooltip-fg: #f5f5f7;
+}
+
+@media (prefers-color-scheme: dark) {
+  :global(:root:not([data-theme='light'])) .tooltip {
+    --tooltip-bg: #2a2a2c;
+    --tooltip-fg: #f5f5f7;
+  }
 }
 
 .cardArrow {

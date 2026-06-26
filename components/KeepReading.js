@@ -38,7 +38,12 @@ export default function KeepReading({ posts = [] }) {
             <div className={styles.cardViz} aria-hidden="true">
               <CardViz variant={i} />
             </div>
-            <h3 className={styles.cardTitle}>{post.title}</h3>
+            <div className={styles.titleRow}>
+              <h3 className={styles.cardTitle}>{post.title}</h3>
+              <span className={styles.tooltip} role="tooltip">
+                {post.title}
+              </span>
+            </div>
             <span className={styles.cardArrow} aria-hidden="true" />
           </Link>
         ))}

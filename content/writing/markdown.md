@@ -129,8 +129,3 @@ flowchart LR
 ## Horizontal rule
 
 ---
-
-## What is not supported by default
-
-- **Math** such as LaTeX requires a math plugin.
-- **Interactive React components** are not supported in plain Markdown. Use MDX or embed a custom component in the page instead.

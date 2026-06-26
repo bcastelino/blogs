@@ -1,6 +1,11 @@
 <div align="center">
 
-# 📝 The Brian Journal
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="public/tbj-white-logo.png">
+  <img src="public/tbj-black-logo.png" alt="The Brian Journal logo" width="96" height="96">
+</picture>
+
+# The Brian Journal
 
 **A personal blog by [Brian Castelino](https://github.com/bcastelino)** — writing about technology, building things, and various topics.
 
@@ -96,7 +101,7 @@ npx serve out      # optional: preview the production build locally
 ## 🗂️ Project structure
 
 ```text
-app/                 App Router pages (home, /about, /docs, /blog/[slug])
+app/                 App Router pages (home, /about, /writing, /blog/[slug])
 components/          Nav, Footer, ThemeToggle, PostCard, MermaidRenderer, ... (CSS Modules)
 content/posts/       Markdown blog posts
 content/docs/        Markdown documentation pages

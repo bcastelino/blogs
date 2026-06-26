@@ -7,3 +7,85 @@
   font-size: clamp(2rem, 5vw, 2.6rem);
   letter-spacing: -0.03em;
 }
+
+.preview {
+  margin: 36px 0 0;
+}
+
+.previewWindow {
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--color-fill-1);
+  box-shadow: var(--shadow-card);
+}
+
+.previewBar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: var(--color-fill-2);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dotRed {
+  background: #ff5f57;
+}
+
+.dotYellow {
+  background: #febc2e;
+}
+
+.dotGreen {
+  background: #28c840;
+}
+
+.previewUrl {
+  margin-left: 10px;
+  padding: 3px 12px;
+  flex: 1;
+  border-radius: 999px;
+  background: var(--color-fill-0);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.previewViewport {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  overflow: hidden;
+  background: var(--color-fill-0);
+}
+
+.previewFrame {
+  width: 200%;
+  height: 200%;
+  border: 0;
+  transform: scale(0.5);
+  transform-origin: top left;
+}
+
+.previewCaption {
+  margin: 12px 0 0;
+  font-size: 0.9rem;
+}
+
+.previewCaption a {
+  color: var(--color-accent);
+  font-weight: 500;
+}

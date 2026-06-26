@@ -5,7 +5,7 @@ import MermaidRenderer from '@/components/MermaidRenderer';
 import styles from './page.module.css';
 
 export const metadata = {
-  title: 'Docs',
+  title: 'Writing',
   description: 'Guide to writing and adding posts to The Brian Journal.',
 };
 
@@ -15,7 +15,7 @@ export default async function DocsPage() {
   const tocSections = [
     { id: 'adding-a-post', title: 'Adding a post' },
     ...markdownSections.map((section) => ({ id: section.id, title: section.title })),
-    { id: 'ui-editing', title: 'Can I add a post from the UI?' },
+    { id: 'faq', title: 'FAQ' },
   ];
 
   return (
@@ -120,22 +120,48 @@ Write your content here. Use headings, lists, code blocks, and tables as needed.
             </section>
           ))}
 
-          <section id="ui-editing" className={styles.section}>
+          <section id="faq" className={styles.section}>
             <div className={styles.sectionHeader}>
-              <h2>Can I add a post from the UI?</h2>
+              <h2>FAQ</h2>
             </div>
-            <p>
-              <strong>Not with the current setup.</strong> This site is statically exported and hosted on GitHub Pages, so it has no server and no database at runtime. The list of posts is read from the filesystem at build time.
-            </p>
-            <p>Adding a post from the browser would require introducing a backend or a content service, such as:</p>
-            <ul>
-              <li>A Next.js API route that writes to the repo via the GitHub API and triggers a rebuild.</li>
-              <li>A headless CMS like Contentful, Sanity, or Strapi.</li>
-              <li>A platform with built-in forms/CMS, like Netlify CMS or Vercel.</li>
-            </ul>
-            <p>
-              That is a bigger architectural change than the current static-only deploy. To keep things free and simple, creating a Markdown file in the repo remains the easiest path.
-            </p>
+
+            <details className={styles.faqItem}>
+              <summary className={styles.faqSummary}>
+                What is not supported by default?
+                <span className={styles.faqIcon} aria-hidden="true" />
+              </summary>
+              <div className={styles.faqAnswer}>
+                <ul>
+                  <li>
+                    <strong>Math</strong> such as LaTeX requires a math plugin.
+                  </li>
+                  <li>
+                    <strong>Interactive React components</strong> are not supported in plain Markdown. Use MDX or embed a custom component in the page instead.
+                  </li>
+                </ul>
+              </div>
+            </details>
+
+            <details className={styles.faqItem}>
+              <summary className={styles.faqSummary}>
+                Can I add a post from the UI?
+                <span className={styles.faqIcon} aria-hidden="true" />
+              </summary>
+              <div className={styles.faqAnswer}>
+                <p>
+                  <strong>Not with the current setup.</strong> This site is statically exported and hosted on GitHub Pages, so it has no server and no database at runtime. The list of posts is read from the filesystem at build time.
+                </p>
+                <p>Adding a post from the browser would require introducing a backend or a content service, such as:</p>
+                <ul>
+                  <li>A Next.js API route that writes to the repo via the GitHub API and triggers a rebuild.</li>
+                  <li>A headless CMS like Contentful, Sanity, or Strapi.</li>
+                  <li>A platform with built-in forms/CMS, like Netlify CMS or Vercel.</li>
+                </ul>
+                <p>
+                  That is a bigger architectural change than the current static-only deploy. To keep things free and simple, creating a Markdown file in the repo remains the easiest path.
+                </p>
+              </div>
+            </details>
           </section>
           <MermaidRenderer />
         </div>

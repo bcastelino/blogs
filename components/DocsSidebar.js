@@ -38,7 +38,7 @@ export default function DocsSidebar({ sections = [] }) {
   }, [update]);
 
   return (
-    <nav className={styles.rail} aria-label="Docs sections">
+    <nav className={styles.rail} aria-label="Writing guide sections">
       {sections.length > 0 && (
         <>
           <div className={styles.railHead}>On this page</div>
