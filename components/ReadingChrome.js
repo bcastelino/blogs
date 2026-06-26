@@ -100,11 +100,11 @@ export default function ReadingChrome({ title, kicker, readingMinutes, headings 
       </div>
 
       {/* 2. Left rail: on-this-page + reading metadata + actions */}
-      <nav className={styles.rail} aria-label="Article navigation" ref={railListRef}>
+      <nav className={styles.rail} aria-label="Article navigation">
         {headings.length > 0 && (
           <>
             <div className={styles.railHead}>On this page</div>
-            <ol className={styles.railList}>
+            <ol className={styles.railList} ref={railListRef}>
               {headings.map((h, i) => (
                 <li
                   key={h.id}

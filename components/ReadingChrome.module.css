@@ -93,12 +93,11 @@
   position: sticky;
   top: 120px;
   max-height: calc(100vh - 160px);
-  overflow-y: auto;
-  scroll-behavior: smooth;
   padding-right: 12px;
   font-size: 13px;
   display: flex;
   flex-direction: column;
+  min-height: 0;
 }
 
 .railHead {
@@ -111,6 +110,7 @@
   border-bottom: 1px solid var(--apple-rule);
   margin-bottom: 16px;
   padding-bottom: 16px;
+  flex-shrink: 0;
 }
 
 .railList {
@@ -120,6 +120,10 @@
   display: flex;
   flex-direction: column;
   gap: 2px;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  scroll-behavior: smooth;
 }
 
 .railItem {
@@ -175,6 +179,7 @@
   margin-top: 22px;
   padding-top: 16px;
   border-top: 1px solid var(--apple-rule);
+  flex-shrink: 0;
 }
 
 .railMetaLabel {
@@ -198,6 +203,7 @@
   flex-direction: column;
   gap: 2px;
   margin-top: 16px;
+  flex-shrink: 0;
 }
 
 .railAction {
