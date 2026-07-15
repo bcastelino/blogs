@@ -116,7 +116,7 @@ Write your content here. Use headings, lists, code blocks, and tables as needed.
                   <CopyButton text={section.markdown} />
                 </div>
               )}
-              <div dangerouslySetInnerHTML={{ __html: section.html }} />
+              <div suppressHydrationWarning dangerouslySetInnerHTML={{ __html: section.html }} />
             </section>
           ))}
 

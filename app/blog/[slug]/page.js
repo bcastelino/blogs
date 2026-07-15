@@ -144,6 +144,7 @@ export default async function PostPage({ params }) {
 
           <div
             className={`prose ${styles.body}`}
+            suppressHydrationWarning
             dangerouslySetInnerHTML={{ __html: post.html }}
           />
 
