@@ -126,6 +126,8 @@ pre {
   font-size: 1.0625rem;
   line-height: 1.75;
   color: var(--color-text-primary);
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .prose h2 {
@@ -202,7 +204,11 @@ pre {
 }
 
 .prose table {
-  width: 100%;
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   border-collapse: collapse;
   margin: 1.5rem 0;
   font-size: 0.95rem;
