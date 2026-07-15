@@ -11,7 +11,7 @@ static site, and deploy your own copy to GitHub Pages.
 
 | Tool | Version | Notes |
 | --- | --- | --- |
-| **Node.js** | **20.x** (18.18+ works) | CI builds on Node 20 — match it to reproduce exactly. |
+| **Node.js** | **20.x** (18.18+ works) | CI builds on Node 20; match it to reproduce exactly. |
 | **npm** | 10+ | Ships with Node 20. |
 | **Git** | any recent | For cloning and deploying. |
 
@@ -42,7 +42,7 @@ npm run dev
 
 Open <http://localhost:3000>.
 
-- In **development** there is **no `/blogs` base path** — the site is served from `/`.
+- In **development** there is **no `/blogs` base path**: the site is served from `/`.
 - The `/blogs` base path is applied **only in production builds** (see [Deploying](#6-deploy-to-github-pages)).
 
 ---
@@ -75,7 +75,7 @@ Your content in **Markdown**.
 | `tags` | optional | Array of topic tags. |
 | `author` / `authorUrl` | optional | Defaults to Brian Castelino. |
 | `updated` | optional | Shows an "Updated" date when different from `date`. |
-| `faq` | optional | Array of `{ question, answer }` — renders an FAQ block + FAQ schema. |
+| `faq` | optional | Array of `{ question, answer }`; renders an FAQ block + FAQ schema. |
 
 ### Mermaid diagrams
 
@@ -98,7 +98,7 @@ npx serve out      # optional: preview the production build locally
 ```
 
 `npm run build` runs `next build` with `output: 'export'`, producing a fully static
-site in `./out` — no server required to host it.
+site in `./out`, no server required to host it.
 
 ---
 
@@ -144,11 +144,11 @@ next.config.mjs            Static export + basePath config
 A couple of checks worth running after edits, since the site is static and
 content-driven:
 
-- **Responsive check** — the layout is verified to have zero horizontal overflow
+- **Responsive check**: the layout is verified to have zero horizontal overflow
   from **320px** through tablet and desktop widths. When touching layout/CSS, resize
   the browser (or use device emulation) across 320 / 375 / 768 / 1024 / 1440px and
   confirm nothing overflows.
-- **Hydration** — post bodies are injected via `dangerouslySetInnerHTML` from
+- **Hydration**: post bodies are injected via `dangerouslySetInnerHTML` from
   build-time Markdown and are marked `suppressHydrationWarning`, since the HTML is
   server-authoritative. If you add client interactivity, avoid non-deterministic
   values (`Date.now()`, `Math.random()`) during render.

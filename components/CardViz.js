@@ -61,7 +61,7 @@ export default function CardViz({ variant = 0 }) {
     );
   }
 
-  // v === 4 — dot grid
+  // v === 4: dot grid
   const dots = [];
   for (let r = 0; r < 4; r += 1) {
     for (let c = 0; c < 6; c += 1) {

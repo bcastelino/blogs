@@ -7,7 +7,7 @@
 
 # The Brian Journal
 
-**A personal blog by [Brian Castelino](https://github.com/bcastelino)** — writing about technology, building things, and various topics.
+**A personal blog by [Brian Castelino](https://github.com/bcastelino)**, writing about technology, building things, and various topics.
 
 [![Live Site](https://img.shields.io/badge/Live-bcastelino.github.io%2Fblogs-blue.svg)](https://bcastelino.github.io/blogs/)
 [![Deploy](https://img.shields.io/github/actions/workflow/status/bcastelino/blogs/deploy.yml?branch=main&label=Deploy)](https://github.com/bcastelino/blogs/actions/workflows/deploy.yml)
@@ -35,10 +35,10 @@
 <td width="50%" valign="top">
 
 **🧠 Deep technical writing**
-Long-form posts on data, AI, and the craft of building — from summit recaps to build-your-own guides.
+Long-form posts on data, AI, and the craft of building, from summit recaps to build-your-own guides.
 
 **🎨 An editorial reading experience**
-A masthead, "on this page" navigation, live reading progress, and a sticky title bar — like a proper magazine.
+A masthead, "on this page" navigation, live reading progress, and a sticky title bar (like a proper magazine).
 
 **🌗 Light & dark, no flash**
 An OKLCH design-token system that respects your system theme and remembers your choice.
@@ -50,7 +50,7 @@ An OKLCH design-token system that respects your system theme and remembers your 
 Drop a `mermaid` code block into any post and it becomes an interactive diagram.
 
 **📱 Reads great everywhere**
-Verified responsive from 320px phones through tablets to desktop — nothing overflows.
+Verified responsive from 320px phones through tablets to desktop; nothing overflows.
 
 **⚡ Static & instant**
 Fully pre-rendered with Next.js, served from GitHub Pages. No server, no database, no cold starts.

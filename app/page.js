@@ -57,7 +57,7 @@ export default function HomePage() {
         <hr className={styles.mastheadRule} />
       </header>
 
-      {posts.length === 0 && <p className={styles.empty}>No posts yet — check back soon.</p>}
+      {posts.length === 0 && <p className={styles.empty}>No posts yet, check back soon.</p>}
 
       {cover && (
         <section className={styles.section}>

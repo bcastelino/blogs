@@ -12,7 +12,7 @@ export default function MermaidRenderer() {
       if (cancelled) return;
 
       // Register the ELK layout separately so a failure here doesn't abort
-      // every diagram — they just fall back to the default (dagre) layout.
+      // every diagram; they just fall back to the default (dagre) layout.
       try {
         const elkLayouts = await import('@mermaid-js/layout-elk').then(
           (m) => m.default

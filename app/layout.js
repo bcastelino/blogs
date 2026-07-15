@@ -21,19 +21,19 @@ export const metadata = {
     template: '%s · The Brian Journal',
   },
   description:
-    'Personal blog by Brian Castelino — writing about technology, building things, and various topics.',
+    'Personal blog by Brian Castelino, writing about technology, building things, and various topics.',
   openGraph: {
     type: 'website',
     title: 'The Brian Journal',
     description:
-      'Personal blog by Brian Castelino — writing about technology, building things, and various topics.',
+      'Personal blog by Brian Castelino, writing about technology, building things, and various topics.',
     url: 'https://bcastelino.github.io/blogs',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'The Brian Journal',
     description:
-      'Personal blog by Brian Castelino — writing about technology, building things, and various topics.',
+      'Personal blog by Brian Castelino, writing about technology, building things, and various topics.',
   },
 };
 
