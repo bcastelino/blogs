@@ -100,6 +100,14 @@
   min-height: 0;
 }
 
+/* On tablet/mobile the TOC rail is hidden, but the fixed progress
+   bar and sticky mini bar (rendered by the same component) remain. */
+@media (max-width: 980px) {
+  .rail {
+    display: none;
+  }
+}
+
 .railHead {
   font-size: 10px;
   font-weight: 500;
