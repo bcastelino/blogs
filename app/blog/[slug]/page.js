@@ -16,11 +16,16 @@ export async function generateMetadata({ params }) {
     return {
       title: meta.title,
       description: meta.excerpt,
+      alternates: {
+        canonical: `https://bcastelino.github.io/blogs/blog/${slug}/`,
+      },
       openGraph: {
         type: 'article',
         title: meta.title,
         description: meta.excerpt,
+        url: `https://bcastelino.github.io/blogs/blog/${slug}/`,
         publishedTime: meta.date ?? undefined,
+        modifiedTime: meta.updated ?? meta.date ?? undefined,
       },
     };
   } catch {

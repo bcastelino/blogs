@@ -27,6 +27,5 @@ export default function robots() {
       { userAgent: 'CCBot', disallow: '/' },
     ],
     sitemap: `${SITE}/sitemap.xml`,
-    host: SITE,
   };
 }

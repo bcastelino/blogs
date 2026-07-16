@@ -24,10 +24,12 @@ export const metadata = {
     'Personal blog by Brian Castelino, writing about technology, building things, and various topics.',
   openGraph: {
     type: 'website',
+    siteName: 'The Brian Journal',
+    locale: 'en_US',
     title: 'The Brian Journal',
     description:
       'Personal blog by Brian Castelino, writing about technology, building things, and various topics.',
-    url: 'https://bcastelino.github.io/blogs',
+    url: 'https://bcastelino.github.io/blogs/',
   },
   twitter: {
     card: 'summary_large_image',

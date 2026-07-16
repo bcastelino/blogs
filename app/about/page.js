@@ -3,6 +3,9 @@ import styles from './page.module.css';
 export const metadata = {
   title: 'About',
   description: 'About Brian Castelino and this blog.',
+  alternates: {
+    canonical: 'https://bcastelino.github.io/blogs/about/',
+  },
 };
 
 export default function AboutPage() {

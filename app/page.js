@@ -3,6 +3,12 @@ import { getAllPosts } from '@/lib/posts';
 import CardViz from '@/components/CardViz';
 import styles from './page.module.css';
 
+export const metadata = {
+  alternates: {
+    canonical: 'https://bcastelino.github.io/blogs/',
+  },
+};
+
 const ACCENTS = [
   styles.accentOrange,
   styles.accentBlue,

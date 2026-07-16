@@ -26,6 +26,8 @@
 
 > ### *"An editorial-style journal for engineer's deep dives, build logs, and notes on shipping things."*
 
+![The Brian Journal - Blogs Page](public/brian-blogs.png)
+
 </div>
 
 ## 📰 What's inside

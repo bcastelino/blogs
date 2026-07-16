@@ -7,6 +7,9 @@ import styles from './page.module.css';
 export const metadata = {
   title: 'Writing',
   description: 'Guide to writing and adding posts to The Brian Journal.',
+  alternates: {
+    canonical: 'https://bcastelino.github.io/blogs/writing/',
+  },
 };
 
 export default async function DocsPage() {
