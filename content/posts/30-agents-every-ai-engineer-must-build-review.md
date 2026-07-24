@@ -27,11 +27,11 @@ The short version: the title undersells the book. It sounds like a listicle in h
 <div style="flex:1;min-width:250px;">
 <div style="display:flex;align-items:center;gap:.6rem;margin-bottom:.6rem;"><span style="position:relative;display:inline-block;font-size:1.25rem;letter-spacing:2px;line-height:1;"><span style="color:var(--color-text-muted);opacity:.35;">★★★★★</span><span style="position:absolute;top:0;left:0;width:90%;overflow:hidden;white-space:nowrap;color:var(--ios-orange);">★★★★★</span></span><strong style="font-size:1.05rem;">4.5 / 5</strong></div>
 <p style="margin:0 0 1rem;"><strong>Quick verdict:</strong> <em>30 Agents Every AI Engineer Must Build</em> is a pattern library disguised as a catalog. Its real subject is the architecture around the model, not prompting tricks. Best for engineers moving from LLM features to production agent systems.</p>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:.65rem 1.25rem;font-size:.9rem;">
-<div><span style="color:var(--color-text-muted);display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;">Author</span>Imran Ahmad, PhD</div>
-<div><span style="color:var(--color-text-muted);display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;">Publisher</span>Packt (2026)</div>
-<div><span style="color:var(--color-text-muted);display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;">Length</span>542 pages · 17 chapters</div>
-<div><span style="color:var(--color-text-muted);display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;">Format</span>Book + executable repo</div>
+<div style="display:flex;flex-wrap:wrap;gap:1rem;font-size:.9rem;align-items:stretch;">
+<div style="display:flex;flex-direction:column;gap:.15rem;flex:1 1 0;min-width:0;"><span style="color:var(--color-text-muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;">Author</span>Imran Ahmad, PhD</div>
+<div style="display:flex;flex-direction:column;gap:.15rem;flex:1 1 0;min-width:0;"><span style="color:var(--color-text-muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;">Publisher</span>Packt (2026)</div>
+<div style="display:flex;flex-direction:column;gap:.15rem;flex:1 1 0;min-width:0;"><span style="color:var(--color-text-muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;">Length</span>542 pages · 17 chapters</div>
+<div style="display:flex;flex-direction:column;gap:.15rem;flex:1 1 0;min-width:0;"><span style="color:var(--color-text-muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;">Format</span>Book + executable repo</div>
 </div>
 </div>
 </div>
