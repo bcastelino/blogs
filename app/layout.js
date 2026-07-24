@@ -4,6 +4,7 @@ import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 import PageTransition from '@/components/PageTransition';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
+import CookieConsent from '@/components/CookieConsent';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -56,6 +57,7 @@ export default function RootLayout({ children }) {
           <PageTransition>{children}</PageTransition>
         </main>
         <Footer />
+        <CookieConsent />
       </body>
     </html>
   );
