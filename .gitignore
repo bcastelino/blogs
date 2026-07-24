@@ -26,4 +26,6 @@ next-env.d.ts
 
 # local only
 .vscode
+.env.example
 /references
+/GA4.md
