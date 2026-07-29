@@ -136,7 +136,14 @@ export default async function PostPage({ params }) {
             <Link href="/" className={styles.back}>
               ← All posts
             </Link>
+            {post.tags.length > 0 && (
+              <Link href={`/topics/${tagSlug(category)}/`} className={styles.kicker}>
+                <span className={styles.kickerDot} aria-hidden="true" />
+                {category}
+              </Link>
+            )}
             <h1 className={styles.title}>{post.title}</h1>
+            {post.excerpt && <p className={styles.standfirst}>{post.excerpt}</p>}
             <div className={styles.meta}>
               {post.author && (
                 <>
