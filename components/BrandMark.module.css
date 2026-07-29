@@ -12,7 +12,7 @@
 }
 
 /* Light theme (default): show the black logo */
-.dark {
+.wrap .dark {
   display: none;
 }
 
