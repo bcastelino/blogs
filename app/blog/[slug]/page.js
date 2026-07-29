@@ -186,6 +186,17 @@ export default async function PostPage({ params }) {
             )}
           </header>
 
+          {post.takeaways.length > 0 && (
+            <aside className={styles.takeaways} aria-label="Key takeaways">
+              <h2 className={styles.takeawaysTitle}>Key takeaways</h2>
+              <ul className={styles.takeawaysList}>
+                {post.takeaways.map((item, index) => (
+                  <li key={index} dangerouslySetInnerHTML={{ __html: item }} />
+                ))}
+              </ul>
+            </aside>
+          )}
+
           <div
             className={`prose ${styles.body}`}
             suppressHydrationWarning

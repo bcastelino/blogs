@@ -5,6 +5,11 @@ excerpt: "An honest, in-depth review of 30 Agents Every AI Engineer Must Build b
 tags: [book-review, ai-agents, ai-engineering, llm, imran-ahmad, packt]
 author: Brian Castelino
 authorUrl: https://www.linkedin.com/in/cas7elino/
+takeaways:
+  - "**A pattern library, not a listicle.** The 30 agents are composable architectures sharing one vocabulary: the cognitive loop, memory, tool orchestration, verification, and governance."
+  - "**The agent is the architecture around the model.** The book's core claim is that production value comes from control structures, memory models, and validation gates, not from better prompts."
+  - "**Best for engineers moving from LLM features to production agent systems.** Expect breadth over depth: later domain chapters read as reference architectures rather than step-by-step manuals."
+  - "**Rating: 4.5/5 after three months of use.** Pair it with the executable companion repository and build against the chapters to get real value from it."
 faq:
   - question: "What is 30 Agents Every AI Engineer Must Build about?"
     answer: "It is a 542-page, 17-chapter book by Imran Ahmad (Packt, 2026) that teaches agent engineering through 30 reusable agent architectures. The first third builds foundations (the cognitive loop, prompting with PTCF, deployment, security, and governance), then reuses those building blocks across retrieval, orchestration, verification, software, conversation, multimodal, regulated domains, and robotics."
