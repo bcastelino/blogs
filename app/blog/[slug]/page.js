@@ -4,6 +4,8 @@ import { getPost, getPostSlugs, getPostMeta, getAllPosts, formatDate, tagSlug } 
 import ReadingChrome from '@/components/ReadingChrome';
 import KeepReading from '@/components/KeepReading';
 import TableEnhancer from '@/components/TableEnhancer';
+import AuthorCard from '@/components/AuthorCard';
+import { getAuthor } from '@/lib/authors';
 import { SITE_URL, SITE_NAME, LOGO_URL } from '@/lib/site';
 import styles from './page.module.css';
 
@@ -149,18 +151,9 @@ export default async function PostPage({ params }) {
                 <>
                   <span>
                     By{' '}
-                    {post.authorUrl ? (
-                      <a
-                        href={post.authorUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={styles.author}
-                      >
-                        {post.author}
-                      </a>
-                    ) : (
-                      post.author
-                    )}
+                    <Link href={`/authors/${post.authorSlug}/`} className={styles.author}>
+                      {post.author}
+                    </Link>
                   </span>
                   <span className={styles.dot}>·</span>
                 </>
@@ -218,6 +211,8 @@ export default async function PostPage({ params }) {
               ))}
             </section>
           )}
+
+          <AuthorCard author={getAuthor(post.authorSlug)} />
         </article>
       </div>
 

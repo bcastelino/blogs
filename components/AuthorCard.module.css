@@ -1,0 +1,38 @@
+.card {
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid var(--color-border);
+}
+
+.link {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  transition: color 0.15s ease;
+}
+
+.link:hover .name {
+  color: var(--color-accent);
+}
+
+.bio {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--color-text-secondary);
+}
