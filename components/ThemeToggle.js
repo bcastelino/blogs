@@ -28,7 +28,9 @@ export default function ThemeToggle() {
       type="button"
       className={styles.toggle}
       onClick={toggle}
-      aria-label="Toggle color theme"
+      aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
+      aria-pressed={theme === 'dark'}
+      title={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
     >
       {theme === 'dark' ? (
         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
