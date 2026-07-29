@@ -216,6 +216,16 @@ pre {
   scroll-margin-top: 128px;
 }
 
+.prose h2 .sec-num {
+  margin-right: 0.5em;
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+  font-size: 0.55em;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--color-accent);
+  vertical-align: 0.28em;
+}
+
 .prose h3 {
   margin-top: 2rem;
   margin-bottom: 0.75rem;
