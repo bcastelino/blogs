@@ -203,24 +203,159 @@ pre {
   border-top: 1px solid var(--color-border);
 }
 
-.prose table {
-  display: block;
-  width: max-content;
-  max-width: 100%;
+/* ---- Tables: professional, unbreakable on any device ---- */
+/* Structure (from lib/posts.js):
+   .table-wrap[.is-wide] > .table-scroll > table
+   .table-wrap is the positioning context for edge fades + swipe hint;
+   .table-scroll is the horizontal scroll container. */
+.table-wrap {
+  position: relative;
+  margin: 1.5rem 0;
+}
+
+.table-scroll {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+}
+
+.prose .table-scroll table {
+  display: table;
+  width: 100%;
   border-collapse: collapse;
-  margin: 1.5rem 0;
+  margin: 0;
   font-size: 0.95rem;
 }
 
-.prose th,
-.prose td {
+.prose .table-scroll th,
+.prose .table-scroll td {
   padding: 0.6rem 0.8rem;
   border: 1px solid var(--color-border);
   text-align: left;
+  vertical-align: top;
+  /* Override the aggressive .prose word-break so cells wrap at word
+     boundaries instead of splitting words character-by-character. */
+  overflow-wrap: normal;
+  word-break: normal;
 }
 
-.prose th {
+.prose .table-scroll th {
   background: var(--color-fill-1);
+  font-weight: 650;
+}
+
+/* Narrow tables: keep the first (label) column on one line and let the
+   content columns absorb the wrapping. */
+.table-wrap:not(.is-wide) .table-scroll th:first-child,
+.table-wrap:not(.is-wide) .table-scroll td:first-child {
+  width: 1%;
+  white-space: nowrap;
+}
+
+/* Compact link label rendered for raw-URL cells */
+.prose .table-scroll a.table-link {
+  white-space: nowrap;
+}
+
+/* Edge fades: shown only when JS detects scrollable content */
+.table-wrap::before,
+.table-wrap::after {
+  content: '';
+  position: absolute;
+  top: 1px;
+  bottom: 1px;
+  width: 44px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: 2;
+}
+
+.table-wrap::before {
+  left: 1px;
+  background: linear-gradient(to right, var(--color-fill-0), transparent);
+  border-radius: 12px 0 0 12px;
+}
+
+.table-wrap::after {
+  right: 1px;
+  background: linear-gradient(to left, var(--color-fill-0), transparent);
+  border-radius: 0 12px 12px 0;
+}
+
+.table-wrap.can-scroll-left::before {
+  opacity: 1;
+}
+
+.table-wrap.can-scroll-right::after {
+  opacity: 1;
+}
+
+/* One-time "swipe to see more" hint (element injected by TableEnhancer) */
+.table-hint {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 11px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--color-fill-0);
+  background: color-mix(in oklab, var(--apple-ink) 84%, transparent);
+  border-radius: 999px;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.table-hint svg {
+  width: 13px;
+  height: 13px;
+}
+
+.table-wrap.show-hint .table-hint {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .table-wrap::before,
+  .table-wrap::after,
+  .table-hint {
+    transition: none;
+  }
+}
+
+/* Mobile: narrow tables wrap and fit; wide tables scroll instead of squishing */
+@media (max-width: 640px) {
+  .prose .table-scroll table {
+    font-size: 0.88rem;
+  }
+
+  .prose .table-scroll th,
+  .prose .table-scroll td {
+    padding: 0.5rem 0.6rem;
+  }
+
+  .prose .table-wrap.is-wide .table-scroll table {
+    width: max-content;
+    min-width: 100%;
+  }
+
+  .prose .table-wrap.is-wide .table-scroll th,
+  .prose .table-wrap.is-wide .table-scroll td {
+    min-width: 8.5rem;
+  }
+
+  .prose .table-wrap.is-wide .table-scroll th {
+    white-space: nowrap;
+  }
 }

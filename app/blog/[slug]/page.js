@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { getPost, getPostSlugs, getPostMeta, getAllPosts, formatDate } from '@/lib/posts';
 import ReadingChrome from '@/components/ReadingChrome';
 import KeepReading from '@/components/KeepReading';
+import TableEnhancer from '@/components/TableEnhancer';
 import styles from './page.module.css';
 
 export function generateStaticParams() {
@@ -152,6 +153,7 @@ export default async function PostPage({ params }) {
             suppressHydrationWarning
             dangerouslySetInnerHTML={{ __html: post.html }}
           />
+          <TableEnhancer />
 
           {post.faq.length > 0 && (
             <section className={`prose ${styles.faq}`} aria-labelledby="faq">
