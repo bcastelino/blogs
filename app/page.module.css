@@ -166,14 +166,15 @@
   place-items: center;
   min-height: 280px;
   padding: 32px;
+  overflow: hidden;
   background: radial-gradient(120% 120% at 30% 20%,
       color-mix(in oklab, var(--accent) 22%, var(--color-fill-2)),
       var(--color-fill-2));
 }
 
 .coverViz svg {
-  width: 70%;
-  max-width: 200px;
+  width: 82%;
+  max-width: 320px;
   height: auto;
 }
 
@@ -249,6 +250,7 @@
   height: 124px;
   margin: 16px 0;
   border-radius: 12px;
+  overflow: hidden;
   background: radial-gradient(120% 120% at 30% 20%,
       color-mix(in oklab, var(--accent) 16%, var(--color-fill-2)),
       var(--color-fill-2));

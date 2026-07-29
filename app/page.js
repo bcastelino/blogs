@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { getAllPosts } from '@/lib/posts';
-import CardViz from '@/components/CardViz';
+import RandomCardViz from '@/components/RandomCardViz';
 import styles from './page.module.css';
 
 export const metadata = {
@@ -27,15 +27,6 @@ function categoryOf(post) {
   return post.tags[0] ?? 'Notes';
 }
 
-function shortDate(iso) {
-  if (!iso) return '';
-  return new Date(iso).toLocaleDateString('en-US', {
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric',
-  });
-}
-
 export default function HomePage() {
   const posts = getAllPosts();
   const [cover, ...rest] = posts;
@@ -43,7 +34,17 @@ export default function HomePage() {
   const issueMonth = cover?.date
     ? new Date(cover.date).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
     : '';
-  const topics = [...new Set(posts.flatMap((p) => p.tags))];
+  const latest = rest.slice(0, 3);
+
+  const groupMap = new Map();
+  posts.forEach((post) => {
+    const category = categoryOf(post);
+    if (!groupMap.has(category)) groupMap.set(category, []);
+    groupMap.get(category).push(post);
+  });
+  const topicGroups = [...groupMap.entries()]
+    .map(([category, items]) => ({ category, items }))
+    .sort((a, b) => new Date(b.items[0].date) - new Date(a.items[0].date));
 
   return (
     <div className={styles.shell}>
@@ -77,7 +78,7 @@ export default function HomePage() {
 
           <Link href={`/blog/${cover.slug}`} className={`${styles.coverCard} ${styles.accentOrange}`}>
             <div className={styles.coverViz}>
-              <CardViz variant={0} />
+              <RandomCardViz seed={0} />
             </div>
             <div className={styles.coverText}>
               <div className={styles.coverTagRow}>
@@ -92,7 +93,7 @@ export default function HomePage() {
         </section>
       )}
 
-      {rest.length > 0 && (
+      {latest.length > 0 && (
         <section className={styles.section}>
           <div className={`${styles.sectionHead} ${styles.accentBlue}`}>
             <span className={styles.sectionEyebrowWrap}>
@@ -103,7 +104,7 @@ export default function HomePage() {
           </div>
 
           <div className={styles.latestGrid}>
-            {rest.map((post, i) => (
+            {latest.map((post, i) => (
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
@@ -114,7 +115,7 @@ export default function HomePage() {
                   <span className={styles.metaDim}>{post.readingTime}</span>
                 </div>
                 <div className={styles.cardViz}>
-                  <CardViz variant={i + 1} />
+                  <RandomCardViz seed={i + 1} />
                 </div>
                 <h3 className={styles.cardTitle}>{post.title}</h3>
                 {post.excerpt && <p className={styles.cardPreview}>{post.excerpt}</p>}
@@ -127,51 +128,40 @@ export default function HomePage() {
         </section>
       )}
 
-      {topics.length > 0 && (
-        <section className={styles.section}>
-          <div className={`${styles.sectionHead} ${styles.accentGreen}`}>
+      {topicGroups.map((group, gi) => (
+        <section key={group.category} className={styles.section}>
+          <div className={`${styles.sectionHead} ${accentFor(gi + 2)}`}>
             <span className={styles.sectionEyebrowWrap}>
               <span className={styles.sectionDot} aria-hidden="true" />
-              <span className={styles.sectionEyebrow}>Topics</span>
-            </span>
-            <span className={styles.sectionRule} aria-hidden="true" />
-          </div>
-          <div className={styles.catGrid}>
-            {topics.map((topic) => (
-              <span key={topic} className={styles.tagPill}>
-                {topic}
-              </span>
-            ))}
-          </div>
-        </section>
-      )}
-
-      {posts.length > 0 && (
-        <section className={styles.section}>
-          <div className={`${styles.sectionHead} ${styles.accentSlate}`}>
-            <span className={styles.sectionEyebrowWrap}>
-              <span className={styles.sectionDot} aria-hidden="true" />
-              <span className={styles.sectionEyebrow}>Archive</span>
+              <span className={styles.sectionEyebrow}>{group.category}</span>
             </span>
             <span className={styles.sectionRule} aria-hidden="true" />
           </div>
 
-          <div className={styles.archiveList}>
-            {posts.map((post, i) => (
+          <div className={styles.latestGrid}>
+            {group.items.map((post, i) => (
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
-                className={`${styles.archiveRow} ${accentFor(i)}`}
+                className={`${styles.card} ${accentFor(gi + 2)}`}
               >
-                <span className={styles.archiveDot} aria-hidden="true" />
-                <span className={styles.archiveTitle}>{post.title}</span>
-                <span className={styles.archiveDate}>{shortDate(post.date)}</span>
-                <span className={styles.archiveCategory}>{categoryOf(post)}</span>
+                <div className={styles.cardHead}>
+                  <span className={styles.cardKicker}>{categoryOf(post)}</span>
+                  <span className={styles.metaDim}>{post.readingTime}</span>
+                </div>
+                <div className={styles.cardViz}>
+                  <RandomCardViz seed={gi + i} />
+                </div>
+                <h3 className={styles.cardTitle}>{post.title}</h3>
+                {post.excerpt && <p className={styles.cardPreview}>{post.excerpt}</p>}
+                <span className={styles.cardArrow} aria-hidden="true">
+                  →
+                </span>
               </Link>
             ))}
           </div>
         </section>
-      )}
+      ))}
     </div>
   );
 }
