@@ -11,7 +11,10 @@ export default function Nav() {
           <BrandMark className={styles.brandMark} />
           <span className={styles.brandText}>The Brian Journal</span>
         </Link>
-        <nav className={styles.links}>
+        <nav className={styles.links} aria-label="Primary">
+          <Link href="/topics" className={styles.link}>
+            Topics
+          </Link>
           <Link href="/writing" className={styles.link}>
             Writing
           </Link>
