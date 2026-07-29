@@ -1,5 +1,10 @@
 import Link from 'next/link';
 
+export const metadata = {
+  title: 'Page not found',
+  description: 'The page you were looking for could not be found on The Brian Journal.',
+};
+
 export default function NotFound() {
   return (
     <div className="container" style={{ padding: '96px 0', textAlign: 'center' }}>
