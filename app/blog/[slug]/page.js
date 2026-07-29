@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getPost, getPostSlugs, getPostMeta, getAllPosts, formatDate } from '@/lib/posts';
+import { getPost, getPostSlugs, getPostMeta, getAllPosts, formatDate, tagSlug } from '@/lib/posts';
 import ReadingChrome from '@/components/ReadingChrome';
 import KeepReading from '@/components/KeepReading';
 import TableEnhancer from '@/components/TableEnhancer';
+import { SITE_URL, SITE_NAME, LOGO_URL } from '@/lib/site';
 import styles from './page.module.css';
 
 export function generateStaticParams() {
@@ -18,15 +19,20 @@ export async function generateMetadata({ params }) {
       title: meta.title,
       description: meta.excerpt,
       alternates: {
-        canonical: `https://bcastelino.github.io/blogs/blog/${slug}/`,
+        canonical: `${SITE_URL}/blog/${slug}/`,
       },
       openGraph: {
         type: 'article',
         title: meta.title,
         description: meta.excerpt,
-        url: `https://bcastelino.github.io/blogs/blog/${slug}/`,
+        url: `${SITE_URL}/blog/${slug}/`,
         publishedTime: meta.date ?? undefined,
         modifiedTime: meta.updated ?? meta.date ?? undefined,
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: meta.title,
+        description: meta.excerpt,
       },
     };
   } catch {
@@ -47,21 +53,42 @@ export default async function PostPage({ params }) {
     .slice(0, 3);
   const category = post.tags[0] ?? 'Journal';
 
-  const canonical = `https://bcastelino.github.io/blogs/blog/${slug}/`;
+  const canonical = `${SITE_URL}/blog/${slug}/`;
+  const ogImage = `${canonical}opengraph-image`;
 
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
     headline: post.title,
     description: post.excerpt,
+    image: ogImage,
+    url: canonical,
     datePublished: post.date ?? undefined,
     dateModified: post.updated ?? post.date ?? undefined,
     mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
+    ...(post.tags.length > 0
+      ? { keywords: post.tags.join(', '), articleSection: post.tags[0] }
+      : {}),
     author: {
       '@type': 'Person',
       name: post.author,
       ...(post.authorUrl ? { url: post.authorUrl, sameAs: [post.authorUrl] } : {}),
     },
+    publisher: {
+      '@type': 'Person',
+      name: SITE_NAME,
+      logo: { '@type': 'ImageObject', url: LOGO_URL },
+    },
+  };
+
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: category, item: `${SITE_URL}/topics/${tagSlug(category)}/` },
+      { '@type': 'ListItem', position: 3, name: post.title, item: canonical },
+    ],
   };
 
   const faqJsonLd =
@@ -82,6 +109,10 @@ export default async function PostPage({ params }) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       {faqJsonLd && (
         <script
