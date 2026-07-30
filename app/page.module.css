@@ -107,6 +107,11 @@
   align-items: center;
   gap: 9px;
   flex: none;
+  transition: opacity 0.15s ease;
+}
+
+a.sectionEyebrowWrap:hover {
+  opacity: 0.65;
 }
 
 .sectionDot {
@@ -369,6 +374,33 @@
 .empty {
   margin-top: 40px;
   color: var(--color-text-muted);
+}
+
+/* ---- Scroll-reveal (progressive enhancement) ----
+   Uses the `translate` property (not `transform`) so it composes cleanly
+   with the hover lift, which animates `transform`. Only runs where the
+   browser supports scroll-driven animations and motion is allowed. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .coverCard,
+    .card {
+      animation: cardReveal linear both;
+      animation-timeline: view();
+      animation-range: entry 5% entry 55%;
+    }
+  }
+}
+
+@keyframes cardReveal {
+  from {
+    opacity: 0;
+    translate: 0 26px;
+  }
+
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
 }
 
 /* ---- Responsive ---- */

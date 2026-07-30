@@ -1,4 +1,5 @@
-import { getAllPosts } from '@/lib/posts';
+import { getAllPosts, getAllTags } from '@/lib/posts';
+import { getAuthorSlugs } from '@/lib/authors';
 
 // Generates /sitemap.xml at build time (static export).
 export const dynamic = 'force-static';
@@ -15,10 +16,25 @@ export default function sitemap() {
     priority: 0.8,
   }));
 
+  const tagEntries = getAllTags().map((tag) => ({
+    url: `${SITE}/topics/${tag.slug}/`,
+    lastModified: now,
+    changeFrequency: 'monthly',
+    priority: 0.4,
+  }));
+
   return [
     { url: `${SITE}/`, lastModified: now, changeFrequency: 'weekly', priority: 1 },
+    { url: `${SITE}/topics/`, lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
     { url: `${SITE}/about/`, lastModified: now, changeFrequency: 'yearly', priority: 0.5 },
     { url: `${SITE}/writing/`, lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
     ...postEntries,
+    ...tagEntries,
+    ...getAuthorSlugs().map((slug) => ({
+      url: `${SITE}/authors/${slug}/`,
+      lastModified: now,
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    })),
   ];
 }

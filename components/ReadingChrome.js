@@ -105,21 +105,27 @@ export default function ReadingChrome({ title, kicker, readingMinutes, headings 
           <>
             <div className={styles.railHead}>On this page</div>
             <ol className={styles.railList} ref={railListRef}>
-              {headings.map((h, i) => (
-                <li
-                  key={h.id}
-                  data-id={h.id}
-                  className={`${styles.railItem} ${activeId === h.id ? styles.railItemOn : ''
-                    } ${h.level === 3 ? styles.railItemSub : ''}`}
-                >
-                  <a className={styles.railLink} href={`#${h.id}`}>
-                    <span className={styles.railIndex}>
-                      {String(i + 1).padStart(2, '0')}
-                    </span>
-                    <span className={styles.railText}>{h.text}</span>
-                  </a>
-                </li>
-              ))}
+              {(() => {
+                let h2Index = 0;
+                return headings.map((h) => {
+                  if (h.level === 2) h2Index += 1;
+                  return (
+                    <li
+                      key={h.id}
+                      data-id={h.id}
+                      className={`${styles.railItem} ${activeId === h.id ? styles.railItemOn : ''
+                        } ${h.level === 3 ? styles.railItemSub : ''}`}
+                    >
+                      <a className={styles.railLink} href={`#${h.id}`}>
+                        <span className={styles.railIndex}>
+                          {h.level === 2 ? String(h2Index).padStart(2, '0') : ''}
+                        </span>
+                        <span className={styles.railText}>{h.text}</span>
+                      </a>
+                    </li>
+                  );
+                });
+              })()}
             </ol>
           </>
         )}

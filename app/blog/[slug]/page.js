@@ -1,9 +1,12 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getPost, getPostSlugs, getPostMeta, getAllPosts, formatDate } from '@/lib/posts';
+import { getPost, getPostSlugs, getPostMeta, getAllPosts, formatDate, tagSlug, getPostAccent } from '@/lib/posts';
 import ReadingChrome from '@/components/ReadingChrome';
 import KeepReading from '@/components/KeepReading';
 import TableEnhancer from '@/components/TableEnhancer';
+import AuthorCard from '@/components/AuthorCard';
+import { getAuthor } from '@/lib/authors';
+import { SITE_URL, SITE_NAME, LOGO_URL } from '@/lib/site';
 import styles from './page.module.css';
 
 export function generateStaticParams() {
@@ -18,15 +21,20 @@ export async function generateMetadata({ params }) {
       title: meta.title,
       description: meta.excerpt,
       alternates: {
-        canonical: `https://bcastelino.github.io/blogs/blog/${slug}/`,
+        canonical: `${SITE_URL}/blog/${slug}/`,
       },
       openGraph: {
         type: 'article',
         title: meta.title,
         description: meta.excerpt,
-        url: `https://bcastelino.github.io/blogs/blog/${slug}/`,
+        url: `${SITE_URL}/blog/${slug}/`,
         publishedTime: meta.date ?? undefined,
         modifiedTime: meta.updated ?? meta.date ?? undefined,
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: meta.title,
+        description: meta.excerpt,
       },
     };
   } catch {
@@ -47,21 +55,51 @@ export default async function PostPage({ params }) {
     .slice(0, 3);
   const category = post.tags[0] ?? 'Journal';
 
-  const canonical = `https://bcastelino.github.io/blogs/blog/${slug}/`;
+  const accent = getPostAccent(slug);
+  const accentStyle = {
+    '--color-accent': accent.accent,
+    '--reader-accent': accent.accent,
+    '--color-accent-soft': accent.accentSoft,
+    '--takeaway-tint': accent.accentTint,
+    '--takeaway-border': accent.accentBorder,
+  };
+
+  const canonical = `${SITE_URL}/blog/${slug}/`;
+  const ogImage = `${canonical}opengraph-image`;
 
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
     headline: post.title,
     description: post.excerpt,
+    image: ogImage,
+    url: canonical,
     datePublished: post.date ?? undefined,
     dateModified: post.updated ?? post.date ?? undefined,
     mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
+    ...(post.tags.length > 0
+      ? { keywords: post.tags.join(', '), articleSection: post.tags[0] }
+      : {}),
     author: {
       '@type': 'Person',
       name: post.author,
       ...(post.authorUrl ? { url: post.authorUrl, sameAs: [post.authorUrl] } : {}),
     },
+    publisher: {
+      '@type': 'Person',
+      name: SITE_NAME,
+      logo: { '@type': 'ImageObject', url: LOGO_URL },
+    },
+  };
+
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: category, item: `${SITE_URL}/topics/${tagSlug(category)}/` },
+      { '@type': 'ListItem', position: 3, name: post.title, item: canonical },
+    ],
   };
 
   const faqJsonLd =
@@ -83,6 +121,10 @@ export default async function PostPage({ params }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       {faqJsonLd && (
         <script
           type="application/ld+json"
@@ -90,7 +132,7 @@ export default async function PostPage({ params }) {
         />
       )}
 
-      <div className={styles.layout}>
+      <div className={styles.layout} style={accentStyle}>
         <aside className={styles.railCol}>
           <ReadingChrome
             title={post.title}
@@ -105,24 +147,22 @@ export default async function PostPage({ params }) {
             <Link href="/" className={styles.back}>
               ← All posts
             </Link>
+            {post.tags.length > 0 && (
+              <Link href={`/topics/${tagSlug(category)}/`} className={styles.kicker}>
+                <span className={styles.kickerDot} aria-hidden="true" />
+                {category}
+              </Link>
+            )}
             <h1 className={styles.title}>{post.title}</h1>
+            {post.excerpt && <p className={styles.standfirst}>{post.excerpt}</p>}
             <div className={styles.meta}>
               {post.author && (
                 <>
                   <span>
                     By{' '}
-                    {post.authorUrl ? (
-                      <a
-                        href={post.authorUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={styles.author}
-                      >
-                        {post.author}
-                      </a>
-                    ) : (
-                      post.author
-                    )}
+                    <Link href={`/authors/${post.authorSlug}/`} className={styles.author}>
+                      {post.author}
+                    </Link>
                   </span>
                   <span className={styles.dot}>·</span>
                 </>
@@ -148,6 +188,17 @@ export default async function PostPage({ params }) {
             )}
           </header>
 
+          {post.takeaways.length > 0 && (
+            <aside className={styles.takeaways} aria-label="Key takeaways">
+              <h2 className={styles.takeawaysTitle}>Key takeaways</h2>
+              <ul className={styles.takeawaysList}>
+                {post.takeaways.map((item, index) => (
+                  <li key={index} dangerouslySetInnerHTML={{ __html: item }} />
+                ))}
+              </ul>
+            </aside>
+          )}
+
           <div
             className={`prose ${styles.body}`}
             suppressHydrationWarning
@@ -169,6 +220,8 @@ export default async function PostPage({ params }) {
               ))}
             </section>
           )}
+
+          <AuthorCard author={getAuthor(post.authorSlug)} />
         </article>
       </div>
 

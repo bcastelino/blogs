@@ -43,6 +43,7 @@ const socialLinks = [
 ];
 
 const navLinks = [
+  { label: 'Topics', href: '/topics' },
   { label: 'Writing', href: '/writing' },
   { label: 'About', href: '/about' },
 ];

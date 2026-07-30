@@ -6,6 +6,10 @@ excerpt: "A technical deep dive into Databricks Data + AI Summit 2026: Genie One
 tags: [databricks, dais-2026, data-engineering, ai-agents, lakehouse, unity-catalog]
 author: Brian Castelino
 authorUrl: https://www.linkedin.com/in/cas7elino/
+takeaways:
+  - "**The lakehouse becomes a control plane.** DAIS 2026 pivoted from building agents to running agents, apps, and databases on one governed platform."
+  - "**Five headline launches.** Genie One, Unity AI Gateway, Lakeflow, LTAP with Lakebase, and the Lakewatch security lakehouse."
+  - "**Near-term wins are in data engineering and AI/BI.** Adopt Lakeflow, Genie, and Unity Catalog semantics now, and treat LTAP and Lakewatch as multi-year roadmap items."
 faq:
   - question: "When and where was Databricks Data + AI Summit 2026?"
     answer: "Databricks Data + AI Summit 2026 (DAIS 2026) ran from June 15 to 18, 2026 at the Moscone Center in San Francisco, with more than 30,000 in-person attendees and tens of thousands joining virtually from over 150 countries."

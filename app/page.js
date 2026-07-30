@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { getAllPosts } from '@/lib/posts';
+import { getAllPosts, tagSlug } from '@/lib/posts';
 import RandomCardViz from '@/components/RandomCardViz';
 import styles from './page.module.css';
 
@@ -131,10 +131,10 @@ export default function HomePage() {
       {topicGroups.map((group, gi) => (
         <section key={group.category} className={styles.section}>
           <div className={`${styles.sectionHead} ${accentFor(gi + 2)}`}>
-            <span className={styles.sectionEyebrowWrap}>
+            <Link href={`/topics/${tagSlug(group.category)}`} className={styles.sectionEyebrowWrap}>
               <span className={styles.sectionDot} aria-hidden="true" />
               <span className={styles.sectionEyebrow}>{group.category}</span>
-            </span>
+            </Link>
             <span className={styles.sectionRule} aria-hidden="true" />
           </div>
 
