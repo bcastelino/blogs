@@ -3,6 +3,14 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+    # Skip the build when a push only touches docs/meta files that
+    # have no effect on the rendered site.
+    paths-ignore:
+      - 'README.md'
+      - 'SETUP.md'
+      - 'LICENSE'
+      - '.windsurf/**'
+      - '.gitignore'
   workflow_dispatch:
 
 permissions:
