@@ -5,6 +5,10 @@ excerpt: "A complete 2026 guide to building a resume from scratch, finding the g
 tags: [career, resume, ats, job-search, cover-letter, students]
 author: Brian Castelino
 authorUrl: https://www.linkedin.com/in/cas7elino/
+takeaways:
+  - "**Write for four readers.** In 2026 your resume must satisfy the parser, the ranker, the recruiter, and an AI verifier before a human makes the call."
+  - "**Structure and evidence win.** Use a single-column, reverse-chronological layout and write bullets as action verb, what you did, tool, and quantified result, with about 80 percent carrying a metric."
+  - "**Tailor, then pass the ATS honestly.** Aim for a 70 to 80 percent keyword match per role, save in the requested file type, and keep every claim true."
 faq:
   - question: "Is a one-page resume still best in 2026?"
     answer: "For students, new grads, and most people with under 10 years in one field, yes: one page, single column, reverse-chronological. Go to two pages only when you have 10+ years of directly relevant experience or a research and publication record. When a parser reads your resume, clarity and keyword match matter more than squeezing everything onto one page, but recruiters still reward brevity in the 6 to 7 second scan."

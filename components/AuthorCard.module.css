@@ -1,15 +1,38 @@
 .card {
   margin-top: 40px;
-  padding-top: 24px;
-  border-top: 1px solid var(--color-border);
 }
 
 .link {
   display: flex;
-  flex-direction: column;
-  gap: 6px;
+  align-items: center;
+  gap: 18px;
+  padding: 22px 26px;
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  background: var(--color-fill-1);
   text-decoration: none;
   color: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.link:hover {
+  border-color: color-mix(in oklab, var(--color-accent) 40%, var(--color-border));
+  box-shadow: var(--shadow-card);
+}
+
+.avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
 }
 
 .label {
@@ -23,7 +46,7 @@
 .name {
   font-size: 1.1rem;
   font-weight: 600;
-  color: var(--color-text);
+  color: var(--color-text-primary);
   transition: color 0.15s ease;
 }
 
@@ -35,4 +58,10 @@
   font-size: 0.92rem;
   line-height: 1.55;
   color: var(--color-text-secondary);
+}
+
+@media (max-width: 560px) {
+  .link {
+    align-items: flex-start;
+  }
 }

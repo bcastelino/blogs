@@ -31,10 +31,25 @@ three skills below **before** drafting, then apply their guidance to the post.
    date: YYYY-MM-DD
    excerpt: A one-line summary shown on the home page.
    tags: [topic, another]
+   takeaways:
+     - First key point (renders in the accent "Key Takeaways" callout).
+     - Second key point.
    ---
    ```
 
    The file name becomes the URL slug (`/blogs/blog/<slug>/`).
+
+   **Accent color**: each post is automatically assigned an accent color
+   derived deterministically from its slug (one of blue, orange, green,
+   indigo, pink, red). It is stable across reloads and colors the whole
+   post page (kicker, section numbers, links, drop cap, tags, reading bar).
+   No frontmatter is needed to set it. To change a post's color, rename its
+   slug (file name).
+
+   **Key Takeaways**: the optional `takeaways:` list renders as an
+   accent-tinted callout box (accent background tint, accent left border,
+   and accent title) at the top of the post, using that post's accent color.
+   Omit the field to hide the box.
 
 5. Review the draft against all three skills' checklists before committing.
 

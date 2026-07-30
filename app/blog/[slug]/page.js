@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getPost, getPostSlugs, getPostMeta, getAllPosts, formatDate, tagSlug } from '@/lib/posts';
+import { getPost, getPostSlugs, getPostMeta, getAllPosts, formatDate, tagSlug, getPostAccent } from '@/lib/posts';
 import ReadingChrome from '@/components/ReadingChrome';
 import KeepReading from '@/components/KeepReading';
 import TableEnhancer from '@/components/TableEnhancer';
@@ -54,6 +54,15 @@ export default async function PostPage({ params }) {
     .filter((p) => p.slug !== slug)
     .slice(0, 3);
   const category = post.tags[0] ?? 'Journal';
+
+  const accent = getPostAccent(slug);
+  const accentStyle = {
+    '--color-accent': accent.accent,
+    '--reader-accent': accent.accent,
+    '--color-accent-soft': accent.accentSoft,
+    '--takeaway-tint': accent.accentTint,
+    '--takeaway-border': accent.accentBorder,
+  };
 
   const canonical = `${SITE_URL}/blog/${slug}/`;
   const ogImage = `${canonical}opengraph-image`;
@@ -123,7 +132,7 @@ export default async function PostPage({ params }) {
         />
       )}
 
-      <div className={styles.layout}>
+      <div className={styles.layout} style={accentStyle}>
         <aside className={styles.railCol}>
           <ReadingChrome
             title={post.title}

@@ -5,6 +5,10 @@ excerpt: "A grounded review of Sam Bhagwat's two free Mastra books, Principles o
 tags: [book-review, ai-agents, ai-engineering, llm, mastra, typescript, sam-bhagwat]
 author: Brian Castelino
 authorUrl: https://www.linkedin.com/in/cas7elino/
+takeaways:
+  - "**One series, two volumes.** Principles teaches *what* to build; Patterns teaches *how* to keep an agent alive in production. Reading them as a pair is the point."
+  - "**Free and fast.** Both books are free from mastra.ai/book: Principles is a ~134-page primer, Patterns a denser ~92-page field guide of 22 production patterns."
+  - "**Framework-flavored, not framework-locked.** The concepts transfer anywhere, but the code is Mastra-specific and TypeScript-first. Verdict: 4.25 / 5 as a series."
 faq:
   - question: "What are Principles and Patterns of Building AI Agents?"
     answer: "They are two free books by Sam Bhagwat, CEO of the open-source TypeScript framework Mastra. Principles of Building AI Agents (3rd edition, March 2026) is a short conceptual primer across 33 chapters covering prompting, agents, tools, MCP, workflows, RAG, multi-agent systems, evals, deployment, and coding agents. Patterns for Building AI Agents (October 2025, co-written with Michelle Gienow) is Volume 2: 22 production patterns across agent design, context engineering, evals, and security."

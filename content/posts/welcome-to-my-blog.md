@@ -6,6 +6,10 @@ excerpt: "An introduction to The Brian Journal, a personal blog by Brian Casteli
 tags: [meta, writing, data-engineering, ai]
 author: Brian Castelino
 authorUrl: https://www.linkedin.com/in/cas7elino/
+takeaways:
+  - "**What this blog covers.** Data engineering, AI, analytics, and the tools behind what I build, grouped into engineering, tools and workflow, and ideas."
+  - "**Who it is for.** Anyone working with data platforms, BI tools, or AI systems who wants practical, hands-on notes."
+  - "**How it is built.** A statically exported Next.js site hosted free on GitHub Pages, where publishing is just adding a Markdown file."
 ---
 
 The Brian Journal is a personal blog where I write about data engineering, AI, analytics, and the tools I use to build things. This first post explains what the blog covers, who it is for, and how it is built.

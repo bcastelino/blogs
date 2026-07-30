@@ -6,6 +6,10 @@ excerpt: "A step-by-step guide to building a fast static blog with Next.js, Mark
 tags: [nextjs, github-pages, tutorial, static-site, markdown]
 author: Brian Castelino
 authorUrl: https://www.linkedin.com/in/cas7elino/
+takeaways:
+  - "**Static beats dynamic for a blog.** Pre-built HTML from a Next.js static export loads fast, costs nothing to host, and has almost nothing to break."
+  - "**Markdown plus frontmatter is the whole authoring flow.** Drop a file in `content/posts`, add title, date, excerpt, and tags, and the build generates the page and lists it automatically."
+  - "**GitHub Pages and Actions make deploys free and automatic.** Every push to `main` runs `next build` and publishes the exported site in about a minute."
 faq:
   - question: "Is Next.js a good choice for a static blog?"
     answer: "Yes. Next.js can export a fully static site with the output export option, giving you React components, Markdown rendering at build time, and zero hosting cost on platforms like GitHub Pages."
