@@ -16,6 +16,7 @@
 ![Next.js](https://img.shields.io/badge/Next.js-15-black.svg)
 ![React](https://img.shields.io/badge/React-19-61DAFB.svg)
 ![Mermaid](https://img.shields.io/badge/Mermaid-11-FF3670.svg)
+![GA4](https://img.shields.io/badge/GA4-enabled-F9AB00.svg)
 ![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-static-222222.svg)
 
 </div>
@@ -56,6 +57,20 @@ Verified responsive from 320px phones through tablets to desktop; nothing overfl
 
 **⚡ Static & instant**
 Fully pre-rendered with Next.js, served from GitHub Pages. No server, no database, no cold starts.
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+**🌈 Every post, its own color**
+Each post gets a deterministic accent (blue, orange, green, indigo, pink, or red) derived from its slug, tinting the kicker, links, drop cap, reading bar, and the "Key takeaways" callout.
+
+</td>
+<td width="50%" valign="top">
+
+**🔎 Built to be found**
+RSS feed, `llms.txt`, per-post OpenGraph images, JSON-LD structured data, plus topic and author pages for browsing by category or writer.
 
 </td>
 </tr>
