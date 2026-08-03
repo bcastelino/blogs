@@ -8,7 +8,7 @@ export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
 export default function OpengraphImage() {
-  const logo = readFileSync(join(process.cwd(), 'public', 'tbj-white-logo.png'));
+  const logo = readFileSync(join(process.cwd(), 'public', 'brand', 'tbj-white-logo.png'));
   const logoSrc = `data:image/png;base64,${logo.toString('base64')}`;
 
   return new ImageResponse(

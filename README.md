@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="public/tbj-white-logo.png">
-  <img src="public/tbj-black-logo.png" alt="The Brian Journal logo" width="96" height="96">
+  <source media="(prefers-color-scheme: dark)" srcset="public/brand/tbj-white-logo.png">
+  <img src="public/brand/tbj-black-logo.png" alt="The Brian Journal logo" width="96" height="96">
 </picture>
 
 # The Brian Journal
@@ -27,7 +27,7 @@
 
 > ### *"An editorial-style journal for engineer's deep dives, build logs, and notes on shipping things."*
 
-![The Brian Journal - Blogs Page](public/brian-blogs.png)
+![The Brian Journal - Blogs Page](public/brand/brian-blogs.png)
 
 </div>
 

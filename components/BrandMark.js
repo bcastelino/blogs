@@ -9,14 +9,14 @@ export default function BrandMark({ size = 30, className }) {
       style={{ width: size, height: size }}
     >
       <img
-        src={`${basePath}/tbj-black-logo.png`}
+        src={`${basePath}/brand/tbj-black-logo.png`}
         alt="The Brian Journal"
         width={size}
         height={size}
         className={styles.light}
       />
       <img
-        src={`${basePath}/tbj-white-logo.png`}
+        src={`${basePath}/brand/tbj-white-logo.png`}
         alt=""
         aria-hidden="true"
         width={size}

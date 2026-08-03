@@ -18,7 +18,7 @@ export default async function OpengraphImage({ params }) {
   const meta = getPostMeta(slug);
   const category = meta.tags[0] ?? 'Journal';
 
-  const logo = readFileSync(join(process.cwd(), 'public', 'tbj-white-logo.png'));
+  const logo = readFileSync(join(process.cwd(), 'public', 'brand', 'tbj-white-logo.png'));
   const logoSrc = `data:image/png;base64,${logo.toString('base64')}`;
 
   const titleSize = meta.title.length > 70 ? 60 : meta.title.length > 44 ? 72 : 88;
