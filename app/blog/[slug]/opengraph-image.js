@@ -21,7 +21,7 @@ export default async function OpengraphImage({ params }) {
   const logo = readFileSync(join(process.cwd(), 'public', 'brand', 'tbj-white-logo.png'));
   const logoSrc = `data:image/png;base64,${logo.toString('base64')}`;
 
-  const titleSize = meta.title.length > 70 ? 60 : meta.title.length > 44 ? 72 : 88;
+  const titleSize = meta.title.length > 70 ? 56 : meta.title.length > 44 ? 68 : 86;
 
   return new ImageResponse(
     (
@@ -32,50 +32,51 @@ export default async function OpengraphImage({ params }) {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',
-          padding: '80px',
-          background: 'linear-gradient(150deg, #161617 0%, #000000 70%)',
+          padding: '70px',
+          background: '#0a0a0a',
           color: '#f5f5f7',
           fontFamily: 'sans-serif',
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '28px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={logoSrc} width={110} height={110} alt="" />
           <div
             style={{
               fontSize: '28px',
-              letterSpacing: '0.22em',
+              fontWeight: 600,
+              letterSpacing: '0.18em',
               textTransform: 'uppercase',
-              color: '#a1a1a6',
+              color: '#ffffff',
             }}
           >
             The Brian Journal
           </div>
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
           <div
             style={{
               display: 'flex',
               alignItems: 'center',
-              gap: '14px',
-              fontSize: '26px',
+              gap: '12px',
+              fontSize: '24px',
               color: '#0a84ff',
-              letterSpacing: '0.04em',
+              letterSpacing: '0.08em',
               textTransform: 'uppercase',
-              fontWeight: 600,
+              fontWeight: 700,
             }}
           >
-            <div style={{ width: '34px', height: '4px', background: '#007aff' }} />
+            <div style={{ width: '36px', height: '5px', background: '#0a84ff' }} />
             {category}
           </div>
           <div
             style={{
               fontSize: `${titleSize}px`,
-              fontWeight: 700,
-              letterSpacing: '-0.03em',
-              lineHeight: 1.05,
-              display: 'flex',
+              fontWeight: 800,
+              letterSpacing: '-0.035em',
+              lineHeight: 1.08,
+              color: '#ffffff',
             }}
           >
             {meta.title}
@@ -87,8 +88,9 @@ export default async function OpengraphImage({ params }) {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            fontSize: '24px',
-            color: '#6e6e73',
+            fontSize: '28px',
+            fontWeight: 600,
+            color: '#ffffff',
           }}
         >
           <span>By {meta.author}</span>

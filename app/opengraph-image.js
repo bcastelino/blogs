@@ -20,39 +20,41 @@ export default function OpengraphImage() {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',
-          padding: '80px',
-          background: 'linear-gradient(150deg, #161617 0%, #000000 70%)',
+          padding: '70px',
+          background: '#0a0a0a',
           color: '#f5f5f7',
           fontFamily: 'sans-serif',
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '28px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={logoSrc} width={120} height={120} alt="" />
           <div
             style={{
-              fontSize: '30px',
-              letterSpacing: '0.22em',
+              fontSize: '28px',
+              fontWeight: 600,
+              letterSpacing: '0.18em',
               textTransform: 'uppercase',
-              color: '#a1a1a6',
+              color: '#ffffff',
             }}
           >
             The Brian Journal
           </div>
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           <div
             style={{
-              fontSize: '88px',
-              fontWeight: 700,
+              fontSize: '92px',
+              fontWeight: 800,
               letterSpacing: '-0.04em',
               lineHeight: 1.02,
+              color: '#ffffff',
             }}
           >
             Notes on building &amp; ideas
           </div>
-          <div style={{ fontSize: '34px', color: '#a1a1a6', letterSpacing: '-0.01em' }}>
+          <div style={{ fontSize: '36px', color: '#d1d1d6', letterSpacing: '-0.01em', lineHeight: 1.3 }}>
             Essays, experiments, and field notes on technology &amp; software.
           </div>
         </div>
@@ -62,11 +64,12 @@ export default function OpengraphImage() {
             display: 'flex',
             alignItems: 'center',
             gap: '14px',
-            fontSize: '26px',
-            color: '#6e6e73',
+            fontSize: '28px',
+            fontWeight: 600,
+            color: '#ffffff',
           }}
         >
-          <div style={{ width: '40px', height: '4px', background: '#007aff' }} />
+          <div style={{ width: '48px', height: '5px', background: '#0a84ff' }} />
           bcastelino.github.io/blogs
         </div>
       </div>
