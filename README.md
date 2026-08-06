@@ -9,7 +9,7 @@
 
 **A personal blog by [Brian Castelino](https://github.com/bcastelino)**, writing about technology, building things, and various topics.
 
-[![Live Site](https://img.shields.io/badge/Live-bcastelino.github.io%2Fblogs-blue.svg)](https://bcastelino.github.io/blogs/)
+[![Live Site](https://img.shields.io/badge/Live-bcastelino.com%2Fblogs-blue.svg)](https://bcastelino.com/blogs/)
 [![Deploy](https://img.shields.io/github/actions/workflow/status/bcastelino/blogs/deploy.yml?branch=main&label=Deploy)](https://github.com/bcastelino/blogs/actions/workflows/deploy.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 
@@ -110,6 +110,6 @@ npm install && npm run dev   # → http://localhost:3000
 
 Code released under the [**MIT License**](./LICENSE) · Content (blog posts) © Brian Castelino
 
-[Live Site](https://bcastelino.github.io/blogs/) · [GitHub](https://github.com/bcastelino) · [Setup Guide](./SETUP.md)
+[Live Site](https://bcastelino.com/blogs/) · [GitHub](https://github.com/bcastelino) · [Setup Guide](./SETUP.md)
 
 </div>

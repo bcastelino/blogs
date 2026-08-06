@@ -4,7 +4,7 @@ export const metadata = {
   title: 'About',
   description: 'About Brian Castelino and this blog.',
   alternates: {
-    canonical: 'https://bcastelino.github.io/blogs/about/',
+    canonical: 'https://bcastelino.com/blogs/about/',
   },
 };
 
@@ -29,7 +29,7 @@ export default function AboutPage() {
             </a>{' '}
             or visit my{' '}
             <a
-              href="https://bcastelino.github.io/?utm_source=brian-journal&utm_medium=referral&utm_campaign=about&utm_content=text-link"
+              href="https://bcastelino.com/?utm_source=brian-journal&utm_medium=referral&utm_campaign=about&utm_content=text-link"
               target="_blank"
               rel="noopener"
             >
@@ -45,11 +45,11 @@ export default function AboutPage() {
               <span className={`${styles.dot} ${styles.dotRed}`} />
               <span className={`${styles.dot} ${styles.dotYellow}`} />
               <span className={`${styles.dot} ${styles.dotGreen}`} />
-              <span className={styles.previewUrl}>bcastelino.github.io</span>
+              <span className={styles.previewUrl}>bcastelino.com</span>
             </div>
             <div className={styles.previewViewport}>
               <iframe
-                src="https://bcastelino.github.io/?utm_source=brian-journal&utm_medium=referral&utm_campaign=about&utm_content=preview-embed"
+                src="https://bcastelino.com/?utm_source=brian-journal&utm_medium=referral&utm_campaign=about&utm_content=preview-embed"
                 title="Preview of Brian Castelino's personal website"
                 loading="lazy"
                 className={styles.previewFrame}
@@ -58,11 +58,11 @@ export default function AboutPage() {
           </div>
           <figcaption className={styles.previewCaption}>
             <a
-              href="https://bcastelino.github.io/?utm_source=brian-journal&utm_medium=referral&utm_campaign=about&utm_content=preview-link"
+              href="https://bcastelino.com/?utm_source=brian-journal&utm_medium=referral&utm_campaign=about&utm_content=preview-link"
               target="_blank"
               rel="noopener"
             >
-              Open bcastelino.github.io →
+              Open bcastelino.com →
             </a>
           </figcaption>
         </figure>

@@ -5,7 +5,7 @@ import styles from './page.module.css';
 
 export const metadata = {
   alternates: {
-    canonical: 'https://bcastelino.github.io/blogs/',
+    canonical: 'https://bcastelino.com/blogs/',
   },
 };
 

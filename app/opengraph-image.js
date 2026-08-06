@@ -70,7 +70,7 @@ export default function OpengraphImage() {
           }}
         >
           <div style={{ width: '48px', height: '5px', background: '#0a84ff' }} />
-          bcastelino.github.io/blogs
+          bcastelino.com/blogs
         </div>
       </div>
     ),

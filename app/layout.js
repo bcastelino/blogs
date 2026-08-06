@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  metadataBase: new URL('https://bcastelino.github.io'),
+  metadataBase: new URL('https://bcastelino.com'),
   title: {
     default: 'The Brian Journal',
     template: '%s · The Brian Journal',
@@ -37,7 +37,7 @@ export const metadata = {
     title: 'The Brian Journal',
     description:
       'Personal blog by Brian Castelino, writing about technology, building things, and various topics.',
-    url: 'https://bcastelino.github.io/blogs/',
+    url: 'https://bcastelino.com/blogs/',
   },
   twitter: {
     card: 'summary_large_image',

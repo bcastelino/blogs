@@ -94,7 +94,7 @@ export default async function OpengraphImage({ params }) {
           }}
         >
           <span>By {meta.author}</span>
-          <span>bcastelino.github.io/blogs</span>
+          <span>bcastelino.com/blogs</span>
         </div>
       </div>
     ),
