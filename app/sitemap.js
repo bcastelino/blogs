@@ -1,10 +1,9 @@
 import { getAllPosts, getAllTags } from '@/lib/posts';
 import { getAuthorSlugs } from '@/lib/authors';
+import { SITE_URL as SITE } from '@/lib/site';
 
 // Generates /sitemap.xml at build time (static export).
 export const dynamic = 'force-static';
-
-const SITE = 'https://bcastelino.github.io/blogs';
 
 export default function sitemap() {
   const now = new Date().toISOString();

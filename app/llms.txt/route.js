@@ -1,10 +1,9 @@
 import { getAllPosts } from '@/lib/posts';
+import { SITE_URL as SITE } from '@/lib/site';
 
 // Emits /llms.txt at build time (static export) following the llmstxt.org
 // convention, so AI systems can discover and cite the blog's content.
 export const dynamic = 'force-static';
-
-const SITE = 'https://bcastelino.github.io/blogs';
 
 export function GET() {
   const posts = getAllPosts();

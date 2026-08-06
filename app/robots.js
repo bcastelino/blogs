@@ -1,9 +1,9 @@
+import { SITE_URL as SITE } from '@/lib/site';
+
 // Generates /robots.txt at build time (static export).
 // Explicitly allows AI search crawlers so the blog can be cited in AI answers,
 // while blocking the training-only Common Crawl bot.
 export const dynamic = 'force-static';
-
-const SITE = 'https://bcastelino.github.io/blogs';
 
 const AI_CRAWLERS = [
   'GPTBot',
