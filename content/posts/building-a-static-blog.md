@@ -3,9 +3,10 @@ title: "How to Build a Free Static Blog with Next.js and GitHub Pages"
 date: 2026-06-20
 updated: 2026-06-26
 excerpt: "A step-by-step guide to building a fast static blog with Next.js, Markdown, and CSS Modules, then deploying it free on GitHub Pages with GitHub Actions."
-tags: [nextjs, github-pages, tutorial, static-site, markdown]
+tags: [open-source, meta]
 author: Brian Castelino
 authorUrl: https://www.linkedin.com/in/cas7elino/
+hidden: true
 takeaways:
   - "**Static beats dynamic for a blog.** Pre-built HTML from a Next.js static export loads fast, costs nothing to host, and has almost nothing to break."
   - "**Markdown plus frontmatter is the whole authoring flow.** Drop a file in `content/posts`, add title, date, excerpt, and tags, and the build generates the page and lists it automatically."

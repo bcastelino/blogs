@@ -2,9 +2,10 @@
 title: "The Resume Guide I Wish I Had: Build, Fix, and Tailor It to Land the Interview"
 date: 2026-07-22
 excerpt: "A complete 2026 guide to building a resume from scratch, finding the gaps, tailoring it to a role and company, and passing the ATS, plus a matching cover letter and the tools that make it faster."
-tags: [career, resume, ats, job-search, cover-letter, students]
+tags: [career]
 author: Brian Castelino
 authorUrl: https://www.linkedin.com/in/cas7elino/
+hidden: true
 takeaways:
   - "**Write for four readers.** In 2026 your resume must satisfy the parser, the ranker, the recruiter, and an AI verifier before a human makes the call."
   - "**Structure and evidence win.** Use a single-column, reverse-chronological layout and write bullets as action verb, what you did, tool, and quantified result, with about 80 percent carrying a metric."

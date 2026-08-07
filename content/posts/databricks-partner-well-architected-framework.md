@@ -2,9 +2,10 @@
 title: "Databricks Partner Well Architected Framework: How to Actually Build and Submit a Solution With It"
 date: 2026-08-03
 excerpt: "A practical guide to the Databricks Partner Well Architected Framework (PWAF): the three partner tracks, the four pillars, the four deployment models, and the deployment-model decision that quietly determines what program benefits you can ever earn."
-tags: [databricks, pwaf, partner-architecture, isv, unity-catalog, delta-sharing, solution-accelerator]
+tags: [databricks, data-engineering, open-source]
 author: Brian Castelino
 authorUrl: https://www.linkedin.com/in/cas7elino/
+featured: true
 takeaways:
   - "**Pick your deployment model before you write code.** Databricks documents four models (Partner Hosted, Hybrid, Side Car, Customer Managed), and Customer Managed explicitly gets limited program benefits because telemetry and application management are constrained. Notebook-first accelerators land there by default."
   - "**Architecture is the pillar you will over-invest in, attribution is the one that gates you.** The mandatory Connected ISV requirements are narrow and specific: OAuth 2.0, Unity Catalog registration, and a programmatic `User-Agent` string you can verify in `system.access.audit`."
@@ -57,6 +58,14 @@ This post is the guide I wanted when I started: what the PWAF is, which of the t
 <div style="display:flex;flex-direction:column;gap:.15rem;flex:1 1 0;min-width:0;"><span style="color:var(--color-text-muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;">Credential</span>Partner Training, ISV Partner Well Architected Frameworks</div>
 <div style="display:flex;flex-direction:column;gap:.15rem;flex:1 1 0;min-width:0;"><span style="color:var(--color-text-muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;">Issued</span>July 31, 2026</div>
 </div>
+</div>
+
+<div style="margin:2rem 0;padding:1.25rem 1.5rem;border:1px solid var(--takeaway-border,var(--color-border));border-radius:16px;background:var(--takeaway-tint,var(--color-fill-1));display:flex;flex-wrap:wrap;gap:.75rem 1.5rem;align-items:center;justify-content:space-between;">
+<div style="flex:1;min-width:260px;">
+<span style="display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:var(--color-text-muted);margin-bottom:.35rem;">Live artifact</span>
+<span style="font-size:1rem;font-weight:600;color:var(--color-text-primary);">The accelerator this post describes is the Semantic Model Migration Accelerator, submitted under the PWAF and published by WorldLink US.</span>
+</div>
+<a href="https://worldlink-us.ai/partners/databricks/semantic-model-migration" target="_blank" rel="noopener noreferrer" style="flex:0 0 auto;font-weight:600;">View the accelerator →</a>
 </div>
 
 The training is worth the hour, but it teaches you the map, not the terrain. What follows is the terrain.
@@ -270,7 +279,7 @@ Do not deploy it as your product. It is a reference implementation provided for 
 
 ## Field notes: mapping a real accelerator onto the PWAF
 
-Abstract frameworks get concrete when you run something through them. Here is the accelerator I built at WorldLink Labs, the [Semantic Model Migration Accelerator](https://worldlink-us.ai/partners/databricks/semantic-model-migration), described the way the PWAF would want it described.
+Abstract frameworks get concrete when you run something through them. Here is the accelerator I built at WorldLink US, the [Semantic Model Migration Accelerator](https://worldlink-us.ai/partners/databricks/semantic-model-migration), described the way the PWAF would want it described.
 
 **What it does.** Converts Power BI semantic models exported as TMDL into governed Unity Catalog metric views, with deterministic DAX-to-SQL translation, flagged-measure review bundles, and KPI parity validation against the Power BI baseline.
 

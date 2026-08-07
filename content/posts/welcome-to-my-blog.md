@@ -3,9 +3,11 @@ title: "Welcome to The Brian Journal: Notes on Data, AI, and Engineering"
 date: 2026-06-24
 updated: 2026-06-26
 excerpt: "An introduction to The Brian Journal, a personal blog by Brian Castelino on data engineering, AI, analytics, and the tools and ideas behind what I build."
-tags: [meta, writing, data-engineering, ai]
+tags: [meta]
 author: Brian Castelino
 authorUrl: https://www.linkedin.com/in/cas7elino/
+hidden: true
+noindex: true
 takeaways:
   - "**What this blog covers.** Data engineering, AI, analytics, and the tools behind what I build, grouped into engineering, tools and workflow, and ideas."
   - "**Who it is for.** Anyone working with data platforms, BI tools, or AI systems who wants practical, hands-on notes."

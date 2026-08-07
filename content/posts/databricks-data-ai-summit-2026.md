@@ -3,7 +3,7 @@ title: "Databricks Data + AI Summit 2026: The Lakehouse Becomes the Agentic Cont
 date: 2026-06-25
 updated: 2026-06-26
 excerpt: "A technical deep dive into Databricks Data + AI Summit 2026: Genie One, Unity AI Gateway, Lakeflow, LTAP, Lakebase, and Lakewatch, and what each announcement means for data and AI engineers."
-tags: [databricks, dais-2026, data-engineering, ai-agents, lakehouse, unity-catalog]
+tags: [databricks, data-engineering, ai-engineering]
 author: Brian Castelino
 authorUrl: https://www.linkedin.com/in/cas7elino/
 takeaways:
@@ -284,6 +284,17 @@ Dates use press/blog publication dates; many were also demoed live in the June 1
 - **Security workloads will move closer to the data platform**: if Lakewatch + Panther deliver, expect more SOCs to treat the lakehouse as their primary telemetry and detection surface.
 
 For teams already deep in Databricks, Power BI, and cloud data engineering, the immediate opportunity is to **treat Databricks less as a warehouse and more as an agentic operating environment**, incrementally adopting Lakeflow, Genie, and Unity Catalog semantics while planning if and where LTAP and Lakewatch fit your roadmap.
+
+## What I actually changed after the Summit
+
+A recap is only worth writing if it changes what you do on Monday. Here is what I actually revisited in my own work after DAIS 2026, separated from the announcements above so you can tell reporting from practice.
+
+- **[TODO: confirm] Genie / semantic layer.** [TODO: describe the specific change you made to how you expose metrics or semantic models after seeing Genie Ontology and the Power BI/Tableau metrics import, e.g. which models you registered in Unity Catalog and what it replaced.]
+- **[TODO: confirm] Lakeflow adoption.** [TODO: state whether you moved any ingestion/orchestration onto Lakeflow, which connector or pipeline, and what it replaced (Airflow job, custom CDC, etc.).]
+- **[TODO: confirm] Unity Catalog governance.** [TODO: note any concrete governance change: metric views, glossary/domains, spend caps via Unity AI Gateway, and the before/after.]
+- **[TODO: confirm] What I deliberately did *not* adopt yet.** [TODO: name the announcement you decided to wait on (e.g. LTAP/Lakebase, Lakewatch) and the specific reason it is not on your near-term roadmap.]
+
+**[TODO: confirm] The one measurable outcome.** [TODO: add a single number or before/after result from a change above, e.g. pipeline runtime, cost, or lines of glue code removed. If none yet, say what you will measure and when.]
 
 ## Sources (official and reputable coverage)
 

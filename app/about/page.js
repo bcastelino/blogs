@@ -2,7 +2,8 @@ import styles from './page.module.css';
 
 export const metadata = {
   title: 'About',
-  description: 'About Brian Castelino and this blog.',
+  description:
+    'Brian Castelino, AI Data Engineer at WorldLink US, building production ML and LLM systems on Databricks.',
   alternates: {
     canonical: 'https://bcastelino.com/blogs/about/',
   },
@@ -15,27 +16,31 @@ export default function AboutPage() {
         <h1 className={styles.title}>About</h1>
         <div className="prose">
           <p>
-            Hi, I&apos;m Brian. This is my personal blog where I write about technology,
-            the things I build, and ideas I&apos;m working through.
+            I&apos;m Brian, an AI Data Engineer at WorldLink US. I build production ML and
+            LLM systems on Databricks: Delta pipelines, MLflow registries, model
+            serving, and the promotion workflows that get a model from a notebook to
+            something a thousand people can query.
           </p>
           <p>
-            The site is intentionally simple: a statically generated Next.js app hosted
-            on GitHub Pages, with posts written in Markdown.
+            I write here because explaining a system is the fastest way to find out
+            whether I actually understand it. Most of what&apos;s on this site is long-form
+            and sourced: Databricks platform deep dives, partner architecture, the
+            seam between LLMs and BI, and the occasional honest book review.
           </p>
           <p>
-            You can find more of my work on{' '}
-            <a href="https://github.com/bcastelino" target="_blank" rel="noopener noreferrer">
-              GitHub
-            </a>{' '}
-            or visit my{' '}
+            I also contribute to Databricks Labs&apos; OntoBricks, where debugging an
+            event-loop stall in someone else&apos;s production codebase taught me more
+            than any tutorial has.
+          </p>
+          <p>
+            The case studies, code, and credentials live on my{' '}
             <a
               href="https://bcastelino.com/?utm_source=brian-journal&utm_medium=referral&utm_campaign=about&utm_content=text-link"
               target="_blank"
               rel="noopener"
             >
-              personal website
+              portfolio →
             </a>
-            .
           </p>
         </div>
 
