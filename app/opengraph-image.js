@@ -3,7 +3,7 @@ import { readFileSync } from 'fs';
 import { join } from 'path';
 
 export const dynamic = 'force-static';
-export const alt = 'The Brian Journal: Notes on building & ideas';
+export const alt = 'The Brian Journal: Brian Castelino on Databricks, data and AI engineering';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -45,17 +45,17 @@ export default function OpengraphImage() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           <div
             style={{
-              fontSize: '92px',
+              fontSize: '76px',
               fontWeight: 800,
               letterSpacing: '-0.04em',
-              lineHeight: 1.02,
+              lineHeight: 1.04,
               color: '#ffffff',
             }}
           >
-            Notes on building &amp; ideas
+            Databricks, data &amp; AI engineering
           </div>
-          <div style={{ fontSize: '36px', color: '#d1d1d6', letterSpacing: '-0.01em', lineHeight: 1.3 }}>
-            Essays, experiments, and field notes on technology &amp; software.
+          <div style={{ fontSize: '34px', color: '#d1d1d6', letterSpacing: '-0.01em', lineHeight: 1.3 }}>
+            Long-form, sourced, and honest about what broke.
           </div>
         </div>
 

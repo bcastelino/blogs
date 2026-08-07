@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 import PageTransition from '@/components/PageTransition';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import CookieConsent from '@/components/CookieConsent';
-import { SITE_URL, SITE_NAME, SITE_DESCRIPTION, AUTHOR, LOGO_URL } from '@/lib/site';
+import { SITE_URL, SITE_NAME, SITE_TITLE, SITE_DESCRIPTION, AUTHOR, LOGO_URL } from '@/lib/site';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -20,11 +20,10 @@ const geistMono = Geist_Mono({
 export const metadata = {
   metadataBase: new URL('https://bcastelino.com'),
   title: {
-    default: 'The Brian Journal',
+    default: SITE_TITLE,
     template: '%s · The Brian Journal',
   },
-  description:
-    'Personal blog by Brian Castelino, writing about technology, building things, and various topics.',
+  description: SITE_DESCRIPTION,
   alternates: {
     types: {
       'application/rss+xml': [{ url: `${SITE_URL}/feed.xml`, title: SITE_NAME }],
@@ -34,16 +33,14 @@ export const metadata = {
     type: 'website',
     siteName: 'The Brian Journal',
     locale: 'en_US',
-    title: 'The Brian Journal',
-    description:
-      'Personal blog by Brian Castelino, writing about technology, building things, and various topics.',
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     url: 'https://bcastelino.com/blogs/',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'The Brian Journal',
-    description:
-      'Personal blog by Brian Castelino, writing about technology, building things, and various topics.',
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
   },
 };
 
