@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { getAllPosts, tagSlug } from '@/lib/posts';
+import { getVisiblePosts, getFeaturedPost, formatDate } from '@/lib/posts';
 import RandomCardViz from '@/components/RandomCardViz';
 import styles from './page.module.css';
 
@@ -28,23 +28,14 @@ function categoryOf(post) {
 }
 
 export default function HomePage() {
-  const posts = getAllPosts();
-  const [cover, ...rest] = posts;
+  const posts = getVisiblePosts();
+  const cover = getFeaturedPost();
+  const rest = posts.filter((post) => post.slug !== cover?.slug);
 
   const issueMonth = cover?.date
     ? new Date(cover.date).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
     : '';
-  const latest = rest.slice(0, 3);
-
-  const groupMap = new Map();
-  posts.forEach((post) => {
-    const category = categoryOf(post);
-    if (!groupMap.has(category)) groupMap.set(category, []);
-    groupMap.get(category).push(post);
-  });
-  const topicGroups = [...groupMap.entries()]
-    .map(([category, items]) => ({ category, items }))
-    .sort((a, b) => new Date(b.items[0].date) - new Date(a.items[0].date));
+  const latest = rest.slice(0, 6);
 
   return (
     <div className={styles.shell}>
@@ -56,10 +47,10 @@ export default function HomePage() {
             {issueMonth ? ` · ${issueMonth}` : ''}
           </span>
         </div>
-        <h1 className={styles.mastheadTitle}>Notes on building &amp; ideas</h1>
+        <h1 className={styles.mastheadTitle}>Databricks, data &amp; AI engineering</h1>
         <p className={styles.mastheadLead}>
-          Essays, experiments, and field notes on technology, software, and the
-          occasional tangent.
+          Long-form writing on Databricks, data engineering, and production AI.
+          Sourced, specific, and honest about what I don&apos;t know yet.
         </p>
         <hr className={styles.mastheadRule} />
       </header>
@@ -83,7 +74,10 @@ export default function HomePage() {
             <div className={styles.coverText}>
               <div className={styles.coverTagRow}>
                 <span className={styles.cardKicker}>{categoryOf(cover)}</span>
-                <span className={styles.metaDim}>{cover.readingTime}</span>
+                <span className={styles.metaDim}>
+                  {cover.date ? `${formatDate(cover.date)} · ` : ''}
+                  {cover.readingTime}
+                </span>
               </div>
               <h2 className={styles.coverTitle}>{cover.title}</h2>
               {cover.excerpt && <p className={styles.coverPreview}>{cover.excerpt}</p>}
@@ -112,7 +106,10 @@ export default function HomePage() {
               >
                 <div className={styles.cardHead}>
                   <span className={styles.cardKicker}>{categoryOf(post)}</span>
-                  <span className={styles.metaDim}>{post.readingTime}</span>
+                  <span className={styles.metaDim}>
+                    {post.date ? `${formatDate(post.date)} · ` : ''}
+                    {post.readingTime}
+                  </span>
                 </div>
                 <div className={styles.cardViz}>
                   <RandomCardViz seed={i + 1} />
@@ -128,40 +125,19 @@ export default function HomePage() {
         </section>
       )}
 
-      {topicGroups.map((group, gi) => (
-        <section key={group.category} className={styles.section}>
-          <div className={`${styles.sectionHead} ${accentFor(gi + 2)}`}>
-            <Link href={`/topics/${tagSlug(group.category)}`} className={styles.sectionEyebrowWrap}>
-              <span className={styles.sectionDot} aria-hidden="true" />
-              <span className={styles.sectionEyebrow}>{group.category}</span>
+      {posts.length > 0 && (
+        <section className={styles.browse}>
+          <p className={styles.browseText}>Looking for something specific?</p>
+          <div className={styles.browseLinks}>
+            <Link href="/topics" className={styles.browseLink}>
+              Browse by topic
             </Link>
-            <span className={styles.sectionRule} aria-hidden="true" />
-          </div>
-
-          <div className={styles.latestGrid}>
-            {group.items.map((post, i) => (
-              <Link
-                key={post.slug}
-                href={`/blog/${post.slug}`}
-                className={`${styles.card} ${accentFor(gi + 2)}`}
-              >
-                <div className={styles.cardHead}>
-                  <span className={styles.cardKicker}>{categoryOf(post)}</span>
-                  <span className={styles.metaDim}>{post.readingTime}</span>
-                </div>
-                <div className={styles.cardViz}>
-                  <RandomCardViz seed={gi + i} />
-                </div>
-                <h3 className={styles.cardTitle}>{post.title}</h3>
-                {post.excerpt && <p className={styles.cardPreview}>{post.excerpt}</p>}
-                <span className={styles.cardArrow} aria-hidden="true">
-                  →
-                </span>
-              </Link>
-            ))}
+            <Link href="/archive" className={styles.browseLink}>
+              See the full archive
+            </Link>
           </div>
         </section>
-      ))}
+      )}
     </div>
   );
 }

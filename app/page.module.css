@@ -403,6 +403,53 @@ a.sectionEyebrowWrap:hover {
   }
 }
 
+/* ---- Browse prompt (replaces topic groups on the home page) ---- */
+.browse {
+  margin-top: 48px;
+  padding: 28px clamp(20px, 4vw, 32px);
+  border: 1px solid var(--color-border);
+  border-radius: 18px;
+  background: var(--color-fill-1);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.browseText {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--color-text-primary);
+}
+
+.browseLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.browseLink {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: var(--color-fill-2, var(--color-fill-1));
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  transition: border-color 0.16s ease, color 0.16s ease, transform 0.16s ease;
+}
+
+.browseLink:hover {
+  border-color: var(--ios-blue);
+  color: var(--ios-blue);
+  transform: translateY(-1px);
+}
+
 /* ---- Responsive ---- */
 @media (max-width: 720px) {
   .coverCard {
