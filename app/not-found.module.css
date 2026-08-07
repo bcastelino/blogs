@@ -1,0 +1,128 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: clamp(64px, 14vh, 140px) 24px;
+}
+
+.code {
+  margin: 0;
+  font-size: clamp(9rem, 32vw, 17rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  background: linear-gradient(
+    180deg,
+    var(--color-text-primary) 30%,
+    color-mix(in oklab, var(--color-text-primary) 10%, transparent) 90%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  user-select: none;
+}
+
+.message {
+  margin: 24px 0 0;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--color-text-secondary);
+}
+
+.suggestions {
+  width: min(420px, 100%);
+  margin-top: 40px;
+}
+
+.suggestionsTitle {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: 14px;
+}
+
+.suggestionsList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  text-align: left;
+}
+
+.suggestionsList > li + li {
+  border-top: 1px solid var(--color-border);
+}
+
+.suggestionRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 20px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  transition: background-color 0.16s ease, color 0.16s ease;
+}
+
+.suggestionRow svg {
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+  transition: transform 0.16s ease, color 0.16s ease;
+}
+
+.suggestionRow:hover {
+  background: var(--color-fill-2);
+}
+
+.suggestionRow:hover svg {
+  color: var(--color-accent);
+  transform: translateX(3px);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 36px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 12px 26px;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+  transition: transform 0.16s ease, border-color 0.16s ease, background-color 0.16s ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+}
+
+.buttonPrimary {
+  background: var(--color-text-primary);
+  color: var(--apple-paper);
+}
+
+.buttonPrimary:hover {
+  opacity: 0.85;
+}
+
+.buttonGhost {
+  border-color: var(--color-border);
+  background: var(--color-fill-1);
+  color: var(--color-text-primary);
+}
+
+.buttonGhost:hover {
+  border-color: var(--color-text-muted);
+}
