@@ -12,15 +12,23 @@ export default function Nav() {
           <span className={styles.brandText}>The Brian Journal</span>
         </Link>
         <nav className={styles.links} aria-label="Primary">
+          <Link href="/archive" className={styles.link}>
+            Archive
+          </Link>
           <Link href="/topics" className={styles.link}>
             Topics
-          </Link>
-          <Link href="/writing" className={styles.link}>
-            Writing
           </Link>
           <Link href="/about" className={styles.link}>
             About
           </Link>
+          <a
+            href="https://bcastelino.com/?utm_source=brian-journal&utm_medium=referral&utm_campaign=nav&utm_content=portfolio-link"
+            className={styles.link}
+            target="_blank"
+            rel="noopener"
+          >
+            Portfolio
+          </a>
           <ThemeToggle />
         </nav>
       </div>

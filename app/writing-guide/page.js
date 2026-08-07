@@ -5,11 +5,12 @@ import MermaidRenderer from '@/components/MermaidRenderer';
 import styles from './page.module.css';
 
 export const metadata = {
-  title: 'Writing',
+  title: 'Writing guide',
   description: 'Guide to writing and adding posts to The Brian Journal.',
   alternates: {
-    canonical: 'https://bcastelino.com/blogs/writing/',
+    canonical: 'https://bcastelino.com/blogs/writing-guide/',
   },
+  robots: { index: false, follow: true },
 };
 
 export default async function DocsPage() {

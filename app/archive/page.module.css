@@ -1,0 +1,40 @@
+.wrap {
+  padding: 72px 0 96px;
+}
+
+.header {
+  margin-bottom: 40px;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 650;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.title {
+  margin: 12px 0 8px;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+.lead {
+  margin: 0;
+  max-width: 52ch;
+  color: var(--color-text-secondary);
+  font-size: 1.05rem;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.empty {
+  color: var(--color-text-secondary);
+}

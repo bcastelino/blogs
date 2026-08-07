@@ -40,12 +40,26 @@ const socialLinks = [
       </svg>
     ),
   },
+  {
+    label: 'RSS',
+    href: `${process.env.NEXT_PUBLIC_BASE_PATH || ''}/feed.xml`,
+    icon: (
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+        <path d="M6.18 15.64a2.18 2.18 0 1 1 0 4.36 2.18 2.18 0 0 1 0-4.36zM4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44zm0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z" />
+      </svg>
+    ),
+  },
 ];
 
 const navLinks = [
+  { label: 'Archive', href: '/archive' },
   { label: 'Topics', href: '/topics' },
-  { label: 'Writing', href: '/writing' },
   { label: 'About', href: '/about' },
+  {
+    label: 'Portfolio',
+    href: 'https://bcastelino.com/?utm_source=brian-journal&utm_medium=referral&utm_campaign=footer&utm_content=portfolio-link',
+    external: true,
+  },
 ];
 
 export default function Footer() {
@@ -57,19 +71,20 @@ export default function Footer() {
         <div className={styles.top}>
           <span className={styles.brand}>The Brian Journal</span>
           <p className={styles.description}>
-            Writing about technology, building things, and various topics.
+            Long-form writing on Databricks, data and AI engineering.
           </p>
 
           <div className={styles.socials}>
             {socialLinks.map((link) => {
-              const isMail = link.href.startsWith('mailto:');
+              const isInternal =
+                link.href.startsWith('mailto:') || link.href.startsWith('/');
               return (
                 <a
                   key={link.label}
                   href={link.href}
                   className={styles.social}
                   aria-label={link.label}
-                  {...(isMail
+                  {...(isInternal
                     ? {}
                     : { target: '_blank', rel: 'noopener noreferrer' })}
                 >
@@ -81,11 +96,23 @@ export default function Footer() {
           </div>
 
           <nav className={styles.navLinks}>
-            {navLinks.map((link) => (
-              <Link key={link.label} href={link.href} className={styles.navLink}>
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) =>
+              link.external ? (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className={styles.navLink}
+                  target="_blank"
+                  rel="noopener"
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link key={link.label} href={link.href} className={styles.navLink}>
+                  {link.label}
+                </Link>
+              )
+            )}
           </nav>
         </div>
 
