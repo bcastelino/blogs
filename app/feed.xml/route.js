@@ -19,7 +19,7 @@ function cdata(value = '') {
 }
 
 export async function GET() {
-  const posts = getAllPosts();
+  const posts = getAllPosts().filter((post) => !post.noindex);
   const withHtml = await Promise.all(
     posts.map(async (post) => ({ ...post, html: (await getPost(post.slug)).html }))
   );

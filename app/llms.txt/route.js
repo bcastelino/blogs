@@ -6,14 +6,14 @@ import { SITE_URL as SITE } from '@/lib/site';
 export const dynamic = 'force-static';
 
 export function GET() {
-  const posts = getAllPosts();
+  const posts = getAllPosts().filter((post) => !post.noindex);
 
   const lines = [
     '# The Brian Journal',
     '',
-    '> Personal blog by Brian Castelino with long-form, technical writing on data, AI, agentic systems, Databricks and the lakehouse, developer tooling, and building software in the open.',
+    '> Brian Castelino on Databricks, data engineering, and shipping LLM systems into production. Long-form, sourced, and honest about what broke.',
     '',
-    'Author: Brian Castelino (https://www.linkedin.com/in/cas7elino/). Posts are editorial-style deep dives, build logs, and field notes on shipping software. Everything is freely readable with no paywall.',
+    'Author: Brian Castelino, AI Data Engineer at WorldLink US (https://www.linkedin.com/in/cas7elino/). Posts are first-hand, sourced deep dives on Databricks and the lakehouse, data and AI engineering, production LLM systems, and Power BI. Everything is freely readable with no paywall.',
     '',
     '## Posts',
     '',
@@ -24,9 +24,9 @@ export function GET() {
     '',
     '## Pages',
     '',
+    `- [Archive](${SITE}/archive/): Every post in one list.`,
     `- [Topics](${SITE}/topics/): Browse all posts by topic.`,
     `- [About](${SITE}/about/): About Brian Castelino and this blog.`,
-    `- [Writing](${SITE}/writing/): How posts are written and what the Markdown setup supports.`,
     '',
     '## Optional',
     '',

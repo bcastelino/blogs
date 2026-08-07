@@ -8,12 +8,14 @@ export const dynamic = 'force-static';
 export default function sitemap() {
   const now = new Date().toISOString();
 
-  const postEntries = getAllPosts().map((post) => ({
-    url: `${SITE}/blog/${post.slug}/`,
-    lastModified: post.updated || post.date || now,
-    changeFrequency: 'monthly',
-    priority: 0.8,
-  }));
+  const postEntries = getAllPosts()
+    .filter((post) => !post.noindex)
+    .map((post) => ({
+      url: `${SITE}/blog/${post.slug}/`,
+      lastModified: post.updated || post.date || now,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    }));
 
   const tagEntries = getAllTags().map((tag) => ({
     url: `${SITE}/topics/${tag.slug}/`,
@@ -24,9 +26,9 @@ export default function sitemap() {
 
   return [
     { url: `${SITE}/`, lastModified: now, changeFrequency: 'weekly', priority: 1 },
+    { url: `${SITE}/archive/`, lastModified: now, changeFrequency: 'weekly', priority: 0.6 },
     { url: `${SITE}/topics/`, lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
     { url: `${SITE}/about/`, lastModified: now, changeFrequency: 'yearly', priority: 0.5 },
-    { url: `${SITE}/writing/`, lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
     ...postEntries,
     ...tagEntries,
     ...getAuthorSlugs().map((slug) => ({
