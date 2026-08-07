@@ -5,6 +5,7 @@ import ReadingChrome from '@/components/ReadingChrome';
 import KeepReading from '@/components/KeepReading';
 import TableEnhancer from '@/components/TableEnhancer';
 import AuthorCard from '@/components/AuthorCard';
+import PostCTA from '@/components/PostCTA';
 import { getAuthor } from '@/lib/authors';
 import { SITE_URL, SITE_NAME, LOGO_URL } from '@/lib/site';
 import styles from './page.module.css';
@@ -20,6 +21,7 @@ export async function generateMetadata({ params }) {
     return {
       title: meta.title,
       description: meta.excerpt,
+      ...(meta.noindex ? { robots: { index: false, follow: true } } : {}),
       alternates: {
         canonical: `${SITE_URL}/blog/${slug}/`,
       },
@@ -51,7 +53,7 @@ export default async function PostPage({ params }) {
 
   const post = await getPost(slug);
   const related = getAllPosts()
-    .filter((p) => p.slug !== slug)
+    .filter((p) => p.slug !== slug && !p.noindex)
     .slice(0, 3);
   const category = post.tags[0] ?? 'Journal';
 
@@ -222,6 +224,7 @@ export default async function PostPage({ params }) {
           )}
 
           <AuthorCard author={getAuthor(post.authorSlug)} />
+          <PostCTA />
         </article>
       </div>
 

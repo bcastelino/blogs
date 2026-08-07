@@ -1,0 +1,30 @@
+.cta {
+  margin-top: 32px;
+  padding: 26px 28px;
+  border: 1px solid var(--takeaway-border, var(--color-border));
+  border-radius: 16px;
+  background: var(--takeaway-tint, var(--color-fill-1));
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.lead {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.link {
+  align-self: flex-start;
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--color-accent, var(--ios-blue));
+  transition: opacity 0.16s ease;
+}
+
+.link:hover {
+  opacity: 0.7;
+}
