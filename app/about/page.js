@@ -33,14 +33,7 @@ export default function AboutPage() {
             than any tutorial has.
           </p>
           <p>
-            The case studies, code, and credentials live on my{' '}
-            <a
-              href="https://bcastelino.com/?utm_source=brian-journal&utm_medium=referral&utm_campaign=about&utm_content=text-link"
-              target="_blank"
-              rel="noopener"
-            >
-              portfolio →
-            </a>
+            The case studies, code, and credentials live on my portfolio.
           </p>
         </div>
 
@@ -66,8 +59,9 @@ export default function AboutPage() {
               href="https://bcastelino.com/?utm_source=brian-journal&utm_medium=referral&utm_campaign=about&utm_content=preview-link"
               target="_blank"
               rel="noopener"
+              className={styles.ctaButton}
             >
-              Open bcastelino.com →
+              Open bcastelino.com
             </a>
           </figcaption>
         </figure>

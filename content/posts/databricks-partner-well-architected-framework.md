@@ -50,7 +50,7 @@ This post is the guide I wanted when I started: what the PWAF is, which of the t
 <span style="font-size:.78rem;padding:.25rem .6rem;border-radius:999px;background:var(--color-accent-soft);color:var(--color-text-secondary);">ISV Partnership Skills</span>
 <span style="font-size:.78rem;padding:.25rem .6rem;border-radius:999px;background:var(--color-accent-soft);color:var(--color-text-secondary);">Resource Utilization</span>
 </div>
-<p style="margin:1rem 0 0;font-size:.85rem;"><a href="https://www.credential.net/4133c666-6e3d-4584-8eeb-4a199ee6d517" target="_blank" rel="noopener noreferrer">Verify this credential</a></p>
+<p style="margin:1rem 0 0;"><a href="https://www.credential.net/4133c666-6e3d-4584-8eeb-4a199ee6d517" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:.45rem;padding:.4rem .9rem;border-radius:999px;border:1px solid color-mix(in oklab, var(--color-accent) 25%, transparent);background:var(--color-accent-soft);font-size:.82rem;font-weight:600;color:var(--color-accent);text-decoration:none;"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="var(--color-accent)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><circle cx="12" cy="12" r="10"/><path d="m8.5 12.5 2.5 2.5 4.5-5.5"/></svg>Verify this credential</a></p>
 </div>
 </div>
 <div style="display:flex;flex-wrap:wrap;gap:1rem;font-size:.9rem;align-items:stretch;margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid var(--color-border);">
@@ -65,7 +65,7 @@ This post is the guide I wanted when I started: what the PWAF is, which of the t
 <span style="display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:var(--color-text-muted);margin-bottom:.35rem;">Live artifact</span>
 <span style="font-size:1rem;font-weight:600;color:var(--color-text-primary);">The accelerator this post describes is the Semantic Model Migration Accelerator, submitted under the PWAF and published by WorldLink US.</span>
 </div>
-<a href="https://worldlink-us.ai/partners/databricks/semantic-model-migration" target="_blank" rel="noopener noreferrer" style="flex:0 0 auto;font-weight:600;">View the accelerator →</a>
+<a href="https://worldlink-us.ai/partners/databricks/semantic-model-migration" target="_blank" rel="noopener noreferrer" style="flex:0 0 auto;display:inline-flex;align-items:center;padding:.55rem 1.15rem;border-radius:999px;border:1px solid var(--color-border);background:var(--color-fill-2,var(--color-fill-1));font-size:.92rem;font-weight:600;color:var(--color-text-primary);text-decoration:none;">View the accelerator</a>
 </div>
 
 The training is worth the hour, but it teaches you the map, not the terrain. What follows is the terrain.

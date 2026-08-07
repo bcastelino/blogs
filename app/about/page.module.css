@@ -80,12 +80,26 @@
   transform-origin: top left;
 }
 
-.previewCaption {
-  margin: 12px 0 0;
-  font-size: 0.9rem;
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: var(--color-fill-2);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  transition: border-color 0.16s ease, color 0.16s ease, transform 0.16s ease;
 }
 
-.previewCaption a {
+.ctaButton:hover {
+  border-color: var(--color-accent);
   color: var(--color-accent);
-  font-weight: 500;
+  transform: translateY(-1px);
+}
+
+.previewCaption {
+  margin: 16px 0 0;
+  font-size: 0.9rem;
 }
