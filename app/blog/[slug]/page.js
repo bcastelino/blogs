@@ -67,6 +67,7 @@ export default async function PostPage({ params }) {
   };
 
   const canonical = `${SITE_URL}/blog/${slug}/`;
+  const markdownHref = `${process.env.NEXT_PUBLIC_BASE_PATH || ''}/blog/${slug}/markdown.md`;
   const ogImage = `${canonical}opengraph-image`;
 
   const jsonLd = {
@@ -141,6 +142,8 @@ export default async function PostPage({ params }) {
             kicker={category}
             readingMinutes={post.readingMinutes}
             headings={post.headings}
+            canonicalUrl={canonical}
+            markdownHref={markdownHref}
           />
         </aside>
 

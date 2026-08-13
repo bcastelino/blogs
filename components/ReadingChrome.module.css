@@ -92,6 +92,7 @@
 .rail {
   position: sticky;
   top: 120px;
+  z-index: 10;
   max-height: calc(100vh - 160px);
   padding-right: 12px;
   font-size: 13px;
@@ -230,9 +231,207 @@
 .railActions {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  align-items: flex-start;
+  gap: 4px;
   margin-top: 16px;
   flex-shrink: 0;
+}
+
+.copyControl {
+  position: relative;
+  margin-left: -10px;
+}
+
+.copySplit {
+  display: inline-flex;
+  align-items: stretch;
+  overflow: hidden;
+  border: 1px solid var(--apple-rule);
+  border-radius: 8px;
+  background: var(--color-fill-1);
+  color: var(--apple-ink-soft);
+  transition: border-color 0.16s ease, background 0.16s ease, color 0.16s ease;
+}
+
+.copySplit:hover,
+.copySplit:focus-within {
+  border-color: color-mix(in oklab, var(--apple-ink) 34%, var(--apple-rule));
+  background: var(--color-fill-2);
+  color: var(--apple-ink);
+}
+
+.copyPrimary,
+.copyToggle {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+}
+
+.copyPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 113px;
+  padding: 8px 10px;
+  font-size: 13px;
+  letter-spacing: -0.005em;
+}
+
+.copyPrimary:disabled,
+.copyMenuItem:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.copyToggle {
+  display: inline-grid;
+  width: 34px;
+  place-items: center;
+  border-left: 1px solid var(--apple-rule);
+}
+
+.copyToggle svg {
+  transition: transform 0.16s ease;
+}
+
+.copyToggleOpen svg {
+  transform: rotate(180deg);
+}
+
+.copyPrimary:focus-visible,
+.copyToggle:focus-visible {
+  position: relative;
+  z-index: 1;
+  outline: 2px solid var(--reader-accent);
+  outline-offset: -2px;
+}
+
+.copyMenu {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 0;
+  width: 272px;
+  padding: 6px;
+  border: 1px solid var(--apple-rule);
+  border-radius: 12px;
+  background: var(--color-fill-1);
+  color: var(--apple-ink);
+  box-shadow: 0 4px 8px color-mix(in oklab, var(--apple-ink) 14%, transparent);
+  animation: copyMenuIn 0.16s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.copyMenuItem {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+  text-decoration: none;
+}
+
+.copyMenuItem:hover,
+.copyMenuItem:focus-visible {
+  background: color-mix(in oklab, var(--apple-ink) 6%, transparent);
+}
+
+.copyMenuItem:focus-visible {
+  outline: 2px solid var(--reader-accent);
+  outline-offset: -2px;
+}
+
+.copyMenuIcon {
+  display: inline-grid;
+  width: 30px;
+  height: 30px;
+  flex: 0 0 30px;
+  place-items: center;
+  margin-top: 1px;
+  border: 1px solid var(--apple-rule);
+  border-radius: 7px;
+  color: var(--apple-ink-soft);
+}
+
+.brandIcon,
+.brandIcon img {
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+
+.brandIconLightMark {
+  display: none !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  :global(:root:not([data-theme='light'])) .brandIconDarkMark {
+    display: none;
+  }
+
+  :global(:root:not([data-theme='light'])) .brandIconLightMark {
+    display: block !important;
+  }
+}
+
+:global(:root[data-theme='dark']) .brandIconDarkMark {
+  display: none;
+}
+
+:global(:root[data-theme='dark']) .brandIconLightMark {
+  display: block !important;
+}
+
+.copyMenuItem:hover .copyMenuIcon,
+.copyMenuItem:focus-visible .copyMenuIcon {
+  color: var(--apple-ink);
+}
+
+.copyMenuText {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.copyMenuTitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--apple-ink);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.copyMenuDescription {
+  color: var(--apple-ink-soft);
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.externalIcon {
+  flex-shrink: 0;
+  color: var(--apple-ink-soft);
+}
+
+@keyframes copyMenuIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .railAction {
@@ -261,4 +460,14 @@
   display: inline-grid;
   place-items: center;
   color: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .copyMenu {
+    animation: none;
+  }
+
+  .copyToggle svg {
+    transition: none;
+  }
 }
