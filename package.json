@@ -6,8 +6,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "node scripts/check-seo.mjs",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test:seo": "node --test scripts/seo-audit.test.mjs"
   },
   "dependencies": {
     "@mermaid-js/layout-elk": "^0.2.2",
