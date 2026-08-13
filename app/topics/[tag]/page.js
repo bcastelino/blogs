@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getAllTags, getTag } from '@/lib/posts';
 import PostCard from '@/components/PostCard';
-import { SITE_URL } from '@/lib/site';
+import { SITE_URL, TOPIC_SEO } from '@/lib/site';
 import styles from './page.module.css';
 
 export function generateStaticParams() {
@@ -13,9 +13,12 @@ export async function generateMetadata({ params }) {
   const { tag: tagParam } = await params;
   const tag = getTag(tagParam);
   if (!tag) return {};
+  const seo = TOPIC_SEO[tag.slug];
   return {
-    title: `${tag.name} · Topics`,
-    description: `${tag.count} ${tag.count === 1 ? 'post' : 'posts'} on ${tag.name} from The Brian Journal.`,
+    title: seo?.title ?? `${tag.name} · Topics`,
+    description:
+      seo?.description ??
+      `${tag.count} ${tag.count === 1 ? 'post' : 'posts'} on ${tag.name} from The Brian Journal.`,
     alternates: {
       canonical: `${SITE_URL}/topics/${tag.slug}/`,
     },

@@ -1,5 +1,7 @@
 ---
 title: "The Resume Guide I Wish I Had: Build, Fix, and Tailor It to Land the Interview"
+seoTitle: "How to Build an ATS-Friendly Resume in 2026"
+metaDescription: "Build an ATS-friendly resume for 2026, identify gaps, tailor it to each role, strengthen evidence, and pair it with a focused cover letter."
 date: 2026-07-22
 excerpt: "A complete 2026 guide to building a resume from scratch, finding the gaps, tailoring it to a role and company, and passing the ATS, plus a matching cover letter and the tools that make it faster."
 tags: [career]

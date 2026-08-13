@@ -1,5 +1,7 @@
 ---
 title: "Databricks Partner Well Architected Framework: How to Actually Build and Submit a Solution With It"
+seoTitle: "Databricks Partner Well Architected Framework Guide"
+metaDescription: "Learn the Databricks Partner Well Architected Framework, including partner tracks, architecture pillars, deployment models, attribution, and submission."
 date: 2026-08-03
 excerpt: "A practical guide to the Databricks Partner Well Architected Framework (PWAF): the three partner tracks, the four pillars, the four deployment models, and the deployment-model decision that quietly determines what program benefits you can ever earn."
 tags: [databricks, data-engineering, open-source]

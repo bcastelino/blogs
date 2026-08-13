@@ -3,7 +3,7 @@ import styles from './page.module.css';
 export const metadata = {
   title: 'About',
   description:
-    'Brian Castelino, AI Data Engineer at WorldLink US, building production ML and LLM systems on Databricks.',
+    'Meet Brian Castelino, an AI Data Engineer who builds production ML and LLM systems on Databricks and shares practical engineering lessons.',
   alternates: {
     canonical: 'https://bcastelino.com/blogs/about/',
   },

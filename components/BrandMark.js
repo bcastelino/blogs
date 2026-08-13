@@ -10,18 +10,10 @@ export default function BrandMark({ size = 30, className }) {
     >
       <img
         src={`${basePath}/brand/tbj-black-logo.png`}
-        alt="The Brian Journal"
+        alt="The Brian Journal logo"
         width={size}
         height={size}
-        className={styles.light}
-      />
-      <img
-        src={`${basePath}/brand/tbj-white-logo.png`}
-        alt=""
-        aria-hidden="true"
-        width={size}
-        height={size}
-        className={styles.dark}
+        className={styles.logo}
       />
     </span>
   );

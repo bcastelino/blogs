@@ -17,8 +17,9 @@ export async function generateMetadata({ params }) {
   const author = getAuthor(slug);
   if (!author) return {};
   return {
-    title: `${author.name} · Authors`,
-    description: `${author.bio} Posts by ${author.name} on ${SITE_NAME}.`,
+    title: author.name,
+    description:
+      'Read Brian Castelino\'s articles on Databricks, data engineering, Power BI, and production AI, grounded in hands-on systems and honest lessons.',
     alternates: {
       canonical: `${SITE_URL}/authors/${author.slug}/`,
     },

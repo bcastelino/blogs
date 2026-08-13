@@ -5,7 +5,8 @@ import styles from './page.module.css';
 
 export const metadata = {
   title: 'Archive',
-  description: 'Every post published on The Brian Journal, newest first.',
+  description:
+    'Browse every article from The Brian Journal on Databricks, data engineering, production AI, Power BI, open source, and technical books.',
   alternates: {
     canonical: `${SITE_URL}/archive/`,
   },

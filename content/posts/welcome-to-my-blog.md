@@ -1,5 +1,7 @@
 ---
 title: "Welcome to The Brian Journal: Notes on Data, AI, and Engineering"
+seoTitle: "Welcome to The Brian Journal: Data and AI Engineering"
+metaDescription: "Meet The Brian Journal, Brian Castelino's blog about Databricks, data engineering, production AI, analytics, and the tools behind practical systems."
 date: 2026-06-24
 updated: 2026-06-26
 excerpt: "An introduction to The Brian Journal, a personal blog by Brian Castelino on data engineering, AI, analytics, and the tools and ideas behind what I build."

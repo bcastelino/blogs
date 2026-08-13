@@ -1,5 +1,7 @@
 ---
 title: "Databricks Data + AI Summit 2026: The Lakehouse Becomes the Agentic Control Plane"
+seoTitle: "Databricks Data + AI Summit 2026: Key Announcements"
+metaDescription: "Explore the key Databricks Data + AI Summit 2026 launches, including Genie One, Unity AI Gateway, Lakeflow, LTAP, Lakebase, and Lakewatch."
 date: 2026-06-25
 updated: 2026-06-26
 excerpt: "A technical deep dive into Databricks Data + AI Summit 2026: Genie One, Unity AI Gateway, Lakeflow, LTAP, Lakebase, and Lakewatch, and what each announcement means for data and AI engineers."

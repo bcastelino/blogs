@@ -1,5 +1,7 @@
 ---
 title: "Extreme DAX, Second Edition: An Honest Review of the Advanced Power BI Playbook"
+seoTitle: "Extreme DAX, Second Edition: An Honest Review"
+metaDescription: "Read an honest review of Extreme DAX, Second Edition and learn who it suits, what changed, and how its Power BI scenarios teach advanced DAX."
 date: 2026-08-06
 excerpt: "An honest review of Extreme DAX, Second Edition by Michiel Rozema, Madzy Stikkelorum, and Henk Vlootman. Why this Packt book is a scenario playbook for advanced Power BI, not another DAX function reference."
 tags: [book-review, power-bi]

@@ -1,5 +1,7 @@
 ---
 title: "How to Build a Free Static Blog with Next.js and GitHub Pages"
+seoTitle: "Build a Static Next.js Blog on GitHub Pages"
+metaDescription: "Build and deploy a fast static blog with Next.js, Markdown, CSS Modules, GitHub Actions, and free GitHub Pages hosting, step by step."
 date: 2026-06-20
 updated: 2026-06-26
 excerpt: "A step-by-step guide to building a fast static blog with Next.js, Markdown, and CSS Modules, then deploying it free on GitHub Pages with GitHub Actions."

@@ -19,8 +19,8 @@ export async function generateMetadata({ params }) {
   try {
     const meta = getPostMeta(slug);
     return {
-      title: meta.title,
-      description: meta.excerpt,
+      title: { absolute: meta.seoTitle },
+      description: meta.metaDescription,
       ...(meta.noindex ? { robots: { index: false, follow: true } } : {}),
       alternates: {
         canonical: `${SITE_URL}/blog/${slug}/`,

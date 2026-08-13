@@ -70,6 +70,20 @@ export default async function DocsPage() {
                 </tr>
                 <tr>
                   <td>
+                    <code>seoTitle</code>
+                  </td>
+                  <td>Yes</td>
+                  <td>Unique search-result title. Keep it at 60 characters or fewer.</td>
+                </tr>
+                <tr>
+                  <td>
+                    <code>metaDescription</code>
+                  </td>
+                  <td>Yes</td>
+                  <td>Unique search summary between 120 and 160 characters.</td>
+                </tr>
+                <tr>
+                  <td>
                     <code>date</code>
                   </td>
                   <td>No</td>
@@ -100,6 +114,8 @@ export default async function DocsPage() {
             <pre>
               <code>{`---
 title: My New Post
+seoTitle: My Concise Search Title
+metaDescription: A specific 120 to 160 character summary that explains the article's value and naturally includes its primary topic for search readers.
 date: 2026-06-25
 excerpt: A short summary of what this post is about.
 tags: [example, demo]
@@ -110,6 +126,17 @@ tags: [example, demo]
 Write your content here. Use headings, lists, code blocks, and tables as needed.
 `}</code>
             </pre>
+
+            <h3>SEO and image checklist</h3>
+            <ul>
+              <li>Keep every <code>seoTitle</code> unique and at 60 characters or fewer.</li>
+              <li>Keep every <code>metaDescription</code> unique and between 120 and 160 characters.</li>
+              <li>Add descriptive alt text to every Markdown or HTML image.</li>
+              <li>
+                When introducing a new tag, add its human-readable title and description to the topic SEO catalog in <code>lib/site.js</code>.
+              </li>
+              <li>Run <code>npm run build</code>; the post-build SEO audit blocks invalid metadata or images.</li>
+            </ul>
           </section>
 
           {markdownSections.map((section) => (

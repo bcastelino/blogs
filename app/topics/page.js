@@ -5,7 +5,8 @@ import styles from './page.module.css';
 
 export const metadata = {
   title: 'Topics',
-  description: 'Browse every topic covered on The Brian Journal, from data and AI to developer tooling and building in the open.',
+  description:
+    'Explore The Brian Journal by topic, including Databricks, data engineering, production AI, Power BI, open source, career guides, and book reviews.',
   alternates: {
     canonical: `${SITE_URL}/topics/`,
   },

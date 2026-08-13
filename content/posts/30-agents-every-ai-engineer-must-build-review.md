@@ -1,5 +1,7 @@
 ---
 title: "30 Agents Every AI Engineer Must Build: An Honest Review After Three Months With the Book"
+seoTitle: "30 Agents Every AI Engineer Must Build: Book Review"
+metaDescription: "An honest review of 30 Agents Every AI Engineer Must Build, covering its production agent patterns, strengths, limitations, and ideal readers."
 date: 2026-07-22
 excerpt: "An honest, in-depth review of 30 Agents Every AI Engineer Must Build by Imran Ahmad (Packt). Why the book is really a pattern library for production agent engineering, not a catalog of 30 demos."
 tags: [book-review, ai-engineering]

@@ -4,34 +4,21 @@
   line-height: 0;
 }
 
-.wrap img {
+.logo {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: contain;
 }
 
-/* Light theme (default): show the black logo */
-.wrap .dark {
-  display: none;
-}
-
-/* Manual dark theme */
-:global([data-theme='dark']) .light {
-  display: none;
-}
-
-:global([data-theme='dark']) .dark {
-  display: block;
+/* Keep one crawlable image and adapt its pixels to the active theme. */
+:global([data-theme='dark']) .logo {
+  filter: invert(1);
 }
 
 /* System dark theme (when user hasn't forced light) */
 @media (prefers-color-scheme: dark) {
-  :global(:root:not([data-theme='light'])) .light {
-    display: none;
-  }
-
-  :global(:root:not([data-theme='light'])) .dark {
-    display: block;
+  :global(:root:not([data-theme='light'])) .logo {
+    filter: invert(1);
   }
 }

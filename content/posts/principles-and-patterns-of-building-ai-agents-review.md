@@ -1,5 +1,7 @@
 ---
 title: "Principles and Patterns of Building AI Agents: An Honest Review of Mastra's Free Two-Book Series"
+seoTitle: "Mastra AI Agent Books: Principles and Patterns Review"
+metaDescription: "A practical review of Mastra's free Principles and Patterns of Building AI Agents books, including strengths, tradeoffs, audience, and production value."
 date: 2026-07-29
 excerpt: "A grounded review of Sam Bhagwat's two free Mastra books, Principles of Building AI Agents and Patterns for Building AI Agents. Principles teaches what to build; Patterns teaches how to keep it alive in production."
 tags: [book-review, ai-engineering]
