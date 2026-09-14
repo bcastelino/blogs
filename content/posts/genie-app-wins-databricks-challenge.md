@@ -7,8 +7,6 @@ excerpt: "ChicagoPulse won Gold in the Databricks Genie-Powered App Challenge. H
 tags: [databricks, databricks-genie, ai-engineering, data-engineering]
 author: Brian Castelino
 authorUrl: https://www.linkedin.com/in/cas7elino/
-hidden: true
-noindex: true
 takeaways:
   - "**A good Genie app starts below the chat box.** ChicagoPulse grounds answers in Unity Catalog Metric Views built from four official City of Chicago datasets."
   - "**Trust needs a product surface.** Generated SQL, source provenance, completed-month reporting, explicit missing-data states, and pipeline health make the evidence inspectable."
