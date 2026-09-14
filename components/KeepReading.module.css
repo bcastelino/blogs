@@ -121,6 +121,7 @@
 
 .cardViz {
   flex: 1;
+  min-height: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -130,6 +131,7 @@
 .cardViz svg {
   width: 100%;
   max-width: 240px;
+  max-height: 100%;
   height: auto;
   display: block;
 }
@@ -141,6 +143,7 @@
 .cardTitle {
   margin: 0;
   max-width: 22ch;
+  min-height: calc(1.2em * 3);
   padding-right: 48px;
   font-size: clamp(18px, 1.6vw, 23px);
   font-weight: 600;
