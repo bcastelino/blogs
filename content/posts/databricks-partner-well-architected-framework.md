@@ -7,7 +7,6 @@ excerpt: "A practical guide to the Databricks Partner Well Architected Framework
 tags: [databricks, data-engineering, open-source]
 author: Brian Castelino
 authorUrl: https://www.linkedin.com/in/cas7elino/
-featured: true
 takeaways:
   - "**Pick your deployment model before you write code.** Databricks documents four models (Partner Hosted, Hybrid, Side Car, Customer Managed), and Customer Managed explicitly gets limited program benefits because telemetry and application management are constrained. Notebook-first accelerators land there by default."
   - "**Architecture is the pillar you will over-invest in, attribution is the one that gates you.** The mandatory Connected ISV requirements are narrow and specific: OAuth 2.0, Unity Catalog registration, and a programmatic `User-Agent` string you can verify in `system.access.audit`."

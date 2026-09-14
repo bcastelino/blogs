@@ -7,6 +7,7 @@ excerpt: "ChicagoPulse won Gold in the Databricks Genie-Powered App Challenge. H
 tags: [databricks, databricks-genie, ai-engineering, data-engineering]
 author: Brian Castelino
 authorUrl: https://www.linkedin.com/in/cas7elino/
+featured: true
 takeaways:
   - "**A good Genie app starts below the chat box.** ChicagoPulse grounds answers in Unity Catalog Metric Views built from four official City of Chicago datasets."
   - "**Trust needs a product surface.** Generated SQL, source provenance, completed-month reporting, explicit missing-data states, and pipeline health make the evidence inspectable."
@@ -64,94 +65,110 @@ That is especially uncomfortable in a civic context. ChicagoPulse is not emergen
 
 The deployed frontend and API run together as a Databricks App. React and TypeScript provide the interface, while FastAPI is the normalization and security boundary between the browser and Databricks services.
 
-<svg role="img" aria-label="ChicagoPulse architecture diagram" viewBox="0 0 720 560" style="display:block;width:100%;max-width:720px;height:auto;margin:1.5rem auto;background:var(--color-fill-1);border:1px solid var(--color-border);border-radius:12px;" xmlns="http://www.w3.org/2000/svg">
+<svg role="img" aria-label="ChicagoPulse architecture diagram" viewBox="0 0 720 630" style="display:block;width:100%;max-width:720px;height:auto;margin:1.5rem auto;" xmlns="http://www.w3.org/2000/svg">
   <title>ChicagoPulse data and application architecture</title>
-  <desc>Flow from City of Chicago Socrata APIs through Bronze, Silver, and Gold tables to Unity Catalog Metric Views, then through the React and FastAPI app to Databricks Genie, SQL Warehouse, and Jobs APIs.</desc>
+  <desc>City of Chicago Socrata APIs feed a Bronze, Silver, and Gold pipeline into Unity Catalog Metric Views. A React and TypeScript client calls FastAPI, which orchestrates Genie, SQL Warehouse, and Jobs APIs over the governed workspace.chicagopulse namespace. A daily job refreshes and validates the pipeline.</desc>
+  <style>
+    .cp-card { fill: #ffffff; stroke: #d2d2d7; }
+    .cp-node { fill: #fbfbfd; stroke: #d2d2d7; }
+    .cp-node2 { fill: #f5f5f7; stroke: #d2d2d7; }
+    .cp-accent-node { fill: #eeedfb; stroke: #c7c5f0; }
+    .cp-target { fill: #e7e6fa; stroke: #5856d6; }
+    .cp-title { fill: #3a3a3c; }
+    .cp-label { fill: #1d1d1f; }
+    .cp-sub { fill: #6e6e73; }
+    .cp-line { stroke: #6e6e73; fill: none; }
+    .cp-line-accent { stroke: #5856d6; fill: none; }
+    .cp-arrow-fill { fill: #6e6e73; }
+    .cp-arrow-accent-fill { fill: #5856d6; }
+    .cp-dot { fill: #6e6e73; }
+    .cp-sans { font-family: ui-sans-serif, system-ui, -apple-system, sans-serif; }
+    .cp-mono { font-family: ui-monospace, SFMono-Regular, monospace; }
+    :root[data-theme='dark'] .cp-card { fill: #000000; stroke: #2a2a2c; }
+    :root[data-theme='dark'] .cp-node { fill: #0a0a0b; stroke: #2a2a2c; }
+    :root[data-theme='dark'] .cp-node2 { fill: #1d1d1f; stroke: #2a2a2c; }
+    :root[data-theme='dark'] .cp-accent-node { fill: #15151f; stroke: #3a3980; }
+    :root[data-theme='dark'] .cp-target { fill: #1b1b33; stroke: #7d7aff; }
+    :root[data-theme='dark'] .cp-title { fill: #c7c7cc; }
+    :root[data-theme='dark'] .cp-label { fill: #f5f5f7; }
+    :root[data-theme='dark'] .cp-sub { fill: #a1a1a6; }
+    :root[data-theme='dark'] .cp-line { stroke: #a1a1a6; }
+    :root[data-theme='dark'] .cp-line-accent { stroke: #7d7aff; }
+    :root[data-theme='dark'] .cp-arrow-fill { fill: #a1a1a6; }
+    :root[data-theme='dark'] .cp-arrow-accent-fill { fill: #7d7aff; }
+    :root[data-theme='dark'] .cp-dot { fill: #a1a1a6; }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme='light']) .cp-card { fill: #000000; stroke: #2a2a2c; }
+      :root:not([data-theme='light']) .cp-node { fill: #0a0a0b; stroke: #2a2a2c; }
+      :root:not([data-theme='light']) .cp-node2 { fill: #1d1d1f; stroke: #2a2a2c; }
+      :root:not([data-theme='light']) .cp-accent-node { fill: #15151f; stroke: #3a3980; }
+      :root:not([data-theme='light']) .cp-target { fill: #1b1b33; stroke: #7d7aff; }
+      :root:not([data-theme='light']) .cp-title { fill: #c7c7cc; }
+      :root:not([data-theme='light']) .cp-label { fill: #f5f5f7; }
+      :root:not([data-theme='light']) .cp-sub { fill: #a1a1a6; }
+      :root:not([data-theme='light']) .cp-line { stroke: #a1a1a6; }
+      :root:not([data-theme='light']) .cp-line-accent { stroke: #7d7aff; }
+      :root:not([data-theme='light']) .cp-arrow-fill { fill: #a1a1a6; }
+      :root:not([data-theme='light']) .cp-arrow-accent-fill { fill: #7d7aff; }
+      :root:not([data-theme='light']) .cp-dot { fill: #a1a1a6; }
+    }
+  </style>
   <defs>
-    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--color-text-muted)"/>
-    </marker>
-    <marker id="arrow-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--color-accent)"/>
-    </marker>
+    <marker id="cp-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" class="cp-arrow-fill"/></marker>
+    <marker id="cp-arrow-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" class="cp-arrow-accent-fill"/></marker>
   </defs>
-
-  <rect x="10" y="10" width="700" height="540" rx="12" fill="var(--color-fill-0)" stroke="var(--color-border)" stroke-width="1"/>
-
-  <text x="360" y="44" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="15" font-weight="650" fill="var(--color-text-secondary)">ChicagoPulse architecture</text>
-
-  <rect x="245" y="70" width="230" height="36" rx="18" fill="color-mix(in oklab, var(--color-accent) 8%, var(--color-fill-0))" stroke="color-mix(in oklab, var(--color-accent) 32%, var(--color-border))" stroke-width="1"/>
-  <text x="360" y="94" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, monospace" font-size="12" font-weight="600" fill="var(--color-text-primary)">City of Chicago Socrata APIs</text>
-
-  <line x1="360" y1="106" x2="360" y2="126" stroke="var(--color-text-muted)" stroke-width="1.5" marker-end="url(#arrow)"/>
-
-  <rect x="70" y="136" width="170" height="44" rx="10" fill="var(--color-fill-1)" stroke="var(--color-border)" stroke-width="1"/>
-  <text x="155" y="158" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="var(--color-text-primary)">Bronze</text>
-  <text x="155" y="174" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11" fill="var(--color-text-muted)">ingestion</text>
-
-  <rect x="275" y="136" width="170" height="44" rx="10" fill="var(--color-fill-1)" stroke="var(--color-border)" stroke-width="1"/>
-  <text x="360" y="158" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="var(--color-text-primary)">Silver</text>
-  <text x="360" y="174" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11" fill="var(--color-text-muted)">transformations</text>
-
-  <rect x="480" y="136" width="170" height="44" rx="10" fill="var(--color-fill-1)" stroke="var(--color-border)" stroke-width="1"/>
-  <text x="565" y="158" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="var(--color-text-primary)">Gold</text>
-  <text x="565" y="174" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11" fill="var(--color-text-muted)">semantic tables</text>
-
-  <line x1="240" y1="158" x2="275" y2="158" stroke="var(--color-text-muted)" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <line x1="445" y1="158" x2="480" y2="158" stroke="var(--color-text-muted)" stroke-width="1.5" marker-end="url(#arrow)"/>
-
-  <line x1="565" y1="180" x2="565" y2="216" stroke="var(--color-text-muted)" stroke-width="1.5" marker-end="url(#arrow)"/>
-
-  <rect x="410" y="224" width="310" height="50" rx="10" fill="var(--color-fill-2)" stroke="var(--color-border)" stroke-width="1"/>
-  <text x="565" y="247" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="650" fill="var(--color-text-primary)">Unity Catalog</text>
-  <text x="565" y="264" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11" fill="var(--color-text-muted)">Metric Views</text>
-
-  <line x1="360" y1="180" x2="360" y2="324" stroke="var(--color-text-muted)" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
-  <text x="367" y="286" font-family="ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="11" fill="var(--color-text-muted)">Daily validation</text>
-  <circle cx="360" cy="324" r="4" fill="var(--color-text-muted)"/>
-
-  <line x1="565" y1="274" x2="565" y2="304" stroke="var(--color-text-muted)" stroke-width="1.5" marker-end="url(#arrow)"/>
-
-  <rect x="195" y="320" width="150" height="40" rx="10" fill="var(--color-fill-1)" stroke="var(--color-border)" stroke-width="1"/>
-  <text x="270" y="345" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="var(--color-text-primary)">React + TypeScript</text>
-
-  <rect x="405" y="320" width="120" height="40" rx="10" fill="var(--color-fill-2)" stroke="var(--color-border)" stroke-width="1"/>
-  <text x="465" y="345" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11" fill="var(--color-text-primary)">/api/*</text>
-
-  <rect x="575" y="320" width="125" height="40" rx="10" fill="color-mix(in oklab, var(--color-accent) 8%, var(--color-fill-0))" stroke="color-mix(in oklab, var(--color-accent) 32%, var(--color-border))" stroke-width="1"/>
-  <text x="637" y="345" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="var(--color-text-primary)">FastAPI</text>
-
-  <line x1="345" y1="340" x2="405" y2="340" stroke="var(--color-text-muted)" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <line x1="525" y1="340" x2="575" y2="340" stroke="var(--color-text-muted)" stroke-width="1.5" marker-end="url(#arrow)"/>
-
-  <line x1="637" y1="360" x2="637" y2="390" stroke="var(--color-accent)" stroke-width="1.5" marker-end="url(#arrow-accent)"/>
-
-  <rect x="260" y="400" width="130" height="32" rx="8" fill="var(--color-fill-1)" stroke="var(--color-border)" stroke-width="1"/>
-  <text x="325" y="420" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="11" fill="var(--color-text-primary)">Genie Conversation</text>
-
-  <rect x="405" y="400" width="120" height="32" rx="8" fill="var(--color-fill-1)" stroke="var(--color-border)" stroke-width="1"/>
-  <text x="465" y="420" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="11" fill="var(--color-text-primary)">Genie Feedback</text>
-
-  <rect x="540" y="400" width="115" height="32" rx="8" fill="var(--color-fill-1)" stroke="var(--color-border)" stroke-width="1"/>
-  <text x="597" y="420" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="11" fill="var(--color-text-primary)">SQL Warehouse</text>
-
-  <rect x="50" y="400" width="90" height="32" rx="8" fill="var(--color-fill-1)" stroke="var(--color-border)" stroke-width="1"/>
-  <text x="95" y="420" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="11" fill="var(--color-text-primary)">Jobs API</text>
-
-  <line x1="95" y1="400" x2="95" y2="382" stroke="var(--color-text-muted)" stroke-width="1.5"/>
-  <line x1="95" y1="382" x2="637" y2="382" stroke="var(--color-text-muted)" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <line x1="637" y1="382" x2="637" y2="390" stroke="var(--color-text-muted)" stroke-width="1.5" marker-end="url(#arrow)"/>
-
-  <line x1="325" y1="400" x2="325" y2="390" stroke="var(--color-text-muted)" stroke-width="1.5"/>
-  <line x1="465" y1="400" x2="465" y2="390" stroke="var(--color-text-muted)" stroke-width="1.5"/>
-  <line x1="597" y1="400" x2="597" y2="390" stroke="var(--color-text-muted)" stroke-width="1.5"/>
-
-  <line x1="637" y1="432" x2="637" y2="476" stroke="var(--color-accent)" stroke-width="1.5" marker-end="url(#arrow-accent)"/>
-
-  <rect x="255" y="484" width="210" height="44" rx="10" fill="color-mix(in oklab, var(--color-accent) 12%, var(--color-fill-0))" stroke="var(--color-accent)" stroke-width="1.5"/>
-  <text x="360" y="511" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, monospace" font-size="13" font-weight="650" fill="var(--color-text-primary)">workspace.chicagopulse</text>
-
-  <text x="360" y="545" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="11" fill="var(--color-text-muted)">React + TypeScript, FastAPI, Genie, SQL Warehouse, and Jobs API all run as one Databricks App</text>
+  <rect x="8" y="8" width="704" height="614" rx="14" class="cp-card" stroke-width="1"/>
+  <text x="360" y="40" text-anchor="middle" class="cp-sans cp-title" font-size="15" font-weight="650">ChicagoPulse architecture</text>
+  <rect x="235" y="64" width="250" height="40" rx="20" class="cp-accent-node" stroke-width="1"/>
+  <text x="360" y="89" text-anchor="middle" class="cp-mono cp-label" font-size="12" font-weight="600">City of Chicago Socrata APIs</text>
+  <path d="M 360 104 L 360 128 L 130 128 L 130 150" class="cp-line" stroke-width="1.5" marker-end="url(#cp-arrow)"/>
+  <rect x="42" y="150" width="176" height="54" rx="10" class="cp-node" stroke-width="1"/>
+  <text x="130" y="181" text-anchor="middle" class="cp-sans cp-label" font-size="13" font-weight="600">Bronze</text>
+  <text x="130" y="197" text-anchor="middle" class="cp-mono cp-sub" font-size="11">ingestion</text>
+  <rect x="272" y="150" width="176" height="54" rx="10" class="cp-node" stroke-width="1"/>
+  <text x="360" y="181" text-anchor="middle" class="cp-sans cp-label" font-size="13" font-weight="600">Silver</text>
+  <text x="360" y="197" text-anchor="middle" class="cp-mono cp-sub" font-size="11">transformations</text>
+  <rect x="502" y="150" width="176" height="54" rx="10" class="cp-node" stroke-width="1"/>
+  <text x="590" y="181" text-anchor="middle" class="cp-sans cp-label" font-size="13" font-weight="600">Gold</text>
+  <text x="590" y="197" text-anchor="middle" class="cp-mono cp-sub" font-size="11">semantic tables</text>
+  <line x1="218" y1="177" x2="272" y2="177" class="cp-line" stroke-width="1.5" marker-end="url(#cp-arrow)"/>
+  <line x1="448" y1="177" x2="502" y2="177" class="cp-line" stroke-width="1.5" marker-end="url(#cp-arrow)"/>
+  <path d="M 590 204 L 590 227 L 430 227 L 430 250" class="cp-line" stroke-width="1.5" marker-end="url(#cp-arrow)"/>
+  <rect x="335" y="250" width="190" height="54" rx="10" class="cp-node2" stroke-width="1"/>
+  <text x="430" y="276" text-anchor="middle" class="cp-sans cp-label" font-size="13" font-weight="650">Unity Catalog</text>
+  <text x="430" y="292" text-anchor="middle" class="cp-mono cp-sub" font-size="11">Metric Views</text>
+  <line x1="430" y1="304" x2="430" y2="350" class="cp-line" stroke-width="1.5" marker-end="url(#cp-arrow)"/>
+  <rect x="62" y="350" width="175" height="48" rx="10" class="cp-node" stroke-width="1"/>
+  <text x="149" y="379" text-anchor="middle" class="cp-sans cp-label" font-size="12" font-weight="600">React + TypeScript</text>
+  <rect x="340" y="350" width="180" height="48" rx="10" class="cp-accent-node" stroke-width="1"/>
+  <text x="430" y="371" text-anchor="middle" class="cp-sans cp-label" font-size="12" font-weight="600">FastAPI</text>
+  <text x="430" y="387" text-anchor="middle" class="cp-mono cp-sub" font-size="11">same-origin /api/*</text>
+  <line x1="237" y1="374" x2="340" y2="374" class="cp-line" stroke-width="1.5" marker-end="url(#cp-arrow)"/>
+  <path d="M 430 398 L 430 420" class="cp-line" stroke-width="1.5"/>
+  <line x1="122" y1="420" x2="599" y2="420" class="cp-line" stroke-width="1.5"/>
+  <line x1="122" y1="420" x2="122" y2="444" class="cp-line" stroke-width="1.5" marker-end="url(#cp-arrow)"/>
+  <line x1="281" y1="420" x2="281" y2="444" class="cp-line" stroke-width="1.5" marker-end="url(#cp-arrow)"/>
+  <line x1="440" y1="420" x2="440" y2="444" class="cp-line" stroke-width="1.5" marker-end="url(#cp-arrow)"/>
+  <line x1="599" y1="420" x2="599" y2="444" class="cp-line" stroke-width="1.5" marker-end="url(#cp-arrow)"/>
+  <rect x="67" y="444" width="110" height="38" rx="8" class="cp-node" stroke-width="1"/>
+  <text x="122" y="467" text-anchor="middle" class="cp-sans cp-label" font-size="11">Jobs API</text>
+  <rect x="206" y="444" width="150" height="38" rx="8" class="cp-node" stroke-width="1"/>
+  <text x="281" y="467" text-anchor="middle" class="cp-sans cp-label" font-size="11">Genie Conversation</text>
+  <rect x="375" y="444" width="130" height="38" rx="8" class="cp-node" stroke-width="1"/>
+  <text x="440" y="467" text-anchor="middle" class="cp-sans cp-label" font-size="11">Genie Feedback</text>
+  <rect x="529" y="444" width="140" height="38" rx="8" class="cp-node" stroke-width="1"/>
+  <text x="599" y="467" text-anchor="middle" class="cp-sans cp-label" font-size="11">SQL Warehouse</text>
+  <line x1="122" y1="482" x2="122" y2="504" class="cp-line" stroke-width="1.5"/>
+  <line x1="281" y1="482" x2="281" y2="504" class="cp-line" stroke-width="1.5"/>
+  <line x1="440" y1="482" x2="440" y2="504" class="cp-line" stroke-width="1.5"/>
+  <line x1="599" y1="482" x2="599" y2="504" class="cp-line" stroke-width="1.5"/>
+  <line x1="122" y1="504" x2="599" y2="504" class="cp-line" stroke-width="1.5"/>
+  <line x1="360" y1="504" x2="360" y2="528" class="cp-line-accent" stroke-width="1.5" marker-end="url(#cp-arrow-accent)"/>
+  <rect x="245" y="528" width="230" height="44" rx="10" class="cp-target" stroke-width="1.5"/>
+  <text x="360" y="555" text-anchor="middle" class="cp-mono cp-label" font-size="13" font-weight="650">workspace.chicagopulse</text>
+  <path d="M 67 463 L 34 463 L 34 177 L 42 177" class="cp-line" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#cp-arrow)"/>
+  <text transform="rotate(-90 21 320)" x="21" y="320" text-anchor="middle" class="cp-sans cp-sub" font-size="10">Daily refresh + validation</text>
+  <text x="360" y="598" text-anchor="middle" class="cp-sans cp-sub" font-size="11">React + TypeScript, FastAPI, Genie, SQL Warehouse, and Jobs API all run as one Databricks App</text>
 </svg>
 
 The data layer is more than a collection of uploaded CSV files. Fifteen notebooks cover setup, Bronze ingestion, Silver transformations, Gold metrics, spatial enrichment, semantic-base construction, Unity Catalog Metric Views, incremental refresh, and validation. The daily workflow has explicit ingestion, transformation, and validation stages.
