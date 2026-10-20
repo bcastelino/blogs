@@ -122,6 +122,8 @@ Skip it, or borrow it, if you only want a quick single-framework tutorial or a w
 
 If agent infrastructure is your world, it pairs well with where the platforms are heading. I wrote about that shift in my [Databricks Data + AI Summit 2026](../databricks-data-ai-summit-2026/) breakdown, where the story was almost entirely about *operating* and governing agents at scale, which is exactly the muscle this book trains.
 
+If your interest runs the other direction, using agents to build software rather than building agents as products, read my review of [*Enterprise Vibe Coding for Agentic Engineering*](../enterprise-vibe-coding-for-agentic-engineering-review/). It covers the rules, skills, hooks, and governance gates that keep coding agents accountable inside a shared repository.
+
 ## Final word, and a thank you
 
 <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin:1.5rem 0;padding:1.1rem 1.35rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-fill-1);box-shadow:var(--shadow-card);"><span style="font-size:2.2rem;font-weight:700;letter-spacing:-.02em;line-height:1;">4.5<span style="font-size:1rem;color:var(--color-text-muted);font-weight:500;"> / 5</span></span><span style="position:relative;display:inline-block;font-size:1.3rem;letter-spacing:2px;line-height:1;"><span style="color:var(--color-text-muted);opacity:.35;">★★★★★</span><span style="position:absolute;top:0;left:0;width:90%;overflow:hidden;white-space:nowrap;color:var(--ios-orange);">★★★★★</span></span><span style="flex:1;min-width:200px;color:var(--color-text-secondary);">A pattern library disguised as a catalog, and one of the more grounded agent books I have read.</span></div>
