@@ -191,6 +191,8 @@ A few more tools worth keeping in the kit:
 - **Simplify Copilot** (browser extension) for autofilling applications and surfacing keywords from postings.
 - **RenderCV and the FAANGPath simple template** if you want alternative ATS-friendly LaTeX layouts.
 
+If you are targeting AI roles specifically, Chapter 12 of *The Generative AI Career Masterplan* is a strong companion to this guide. It adds truth-preserving LLM prompts for tailoring, five portfolio projects that signal technical maturity, and an interview story-bank method. I compared it with this guide section by section in my [review of the book](../generative-ai-career-masterplan-review/).
+
 ### Bonus: mine your own LinkedIn first
 
 Remember the fourth reader, the verifier, and the checklist item about keeping your resume consistent with your LinkedIn. The fastest way to close that gap is to actually look at your own LinkedIn data, and most people never do. Your profile already holds years of roles, skills, and connections you can turn into quantified bullets and a tighter skills section, and reviewing it side by side with your resume is how you catch the title and date mismatches before a recruiter does.

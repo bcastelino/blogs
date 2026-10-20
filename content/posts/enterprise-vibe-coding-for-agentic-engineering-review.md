@@ -155,6 +155,8 @@ Read this if coding agents already touch a shared repository and you are the per
 
 Skip it if you want to learn how to build an agent product, or if you want a deep implementation manual. It is a playbook, and it is honest about that.
 
+For the career side of the same shift (which roles grow as humans move above the loop, and how to prove you can do them), see my review of [*The Generative AI Career Masterplan*](../generative-ai-career-masterplan-review/).
+
 ## Final word
 
 <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin:1.5rem 0;padding:1.1rem 1.35rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-fill-1);box-shadow:var(--shadow-card);"><span style="font-size:2.2rem;font-weight:700;letter-spacing:-.02em;line-height:1;">4.5<span style="font-size:1rem;color:var(--color-text-muted);font-weight:500;"> / 5</span></span><span style="position:relative;display:inline-block;font-size:1.3rem;letter-spacing:2px;line-height:1;"><span style="color:var(--color-text-muted);opacity:.35;">★★★★★</span><span style="position:absolute;top:0;left:0;width:90%;overflow:hidden;white-space:nowrap;color:var(--ios-orange);">★★★★★</span></span><span style="flex:1;min-width:200px;color:var(--color-text-secondary);">The clearest operating model I have read for keeping humans accountable while agents write the code.</span></div>
